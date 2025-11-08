@@ -202,6 +202,220 @@ function foodica_child_theme_setup() {
     
     // Add support for custom spacing
     add_theme_support( 'custom-spacing' );
+    
+    // Register navigation menus
+    register_nav_menus( array(
+        'primary' => __( 'Primary Menu', 'foodica-child' ),
+        'footer'  => __( 'Footer Menu', 'foodica-child' ),
+    ) );
 }
 add_action( 'after_setup_theme', 'foodica_child_theme_setup' );
-add_action( 'after_setup_theme', 'foodica_child_theme_setup' );
+
+/**
+ * ========================================================================
+ * AUTO-CREATE ESSENTIAL PAGES & MENU ON ACTIVATION
+ * ========================================================================
+ */
+
+function foodica_child_auto_setup() {
+    // Only run once
+    if ( get_option( 'foodica_child_setup_complete' ) ) {
+        return;
+    }
+    
+    // 1. Create essential pages
+    $pages = array(
+        'about' => array(
+            'title' => 'About',
+            'content' => '<h2>Welcome to Our Kitchen</h2>
+<p>Hi! I\'m passionate about creating delicious, easy-to-follow recipes that bring joy to your table. Every recipe on this blog is tested in my own kitchen and perfected for home cooks like you.</p>
+
+<h3>What You\'ll Find Here</h3>
+<ul>
+<li>Quick weeknight dinners (30 minutes or less)</li>
+<li>Comfort food classics with a modern twist</li>
+<li>Seasonal dishes and holiday favorites</li>
+<li>Kitchen tips and ingredient guides</li>
+</ul>
+
+<h3>Our Mission</h3>
+<p>To make home cooking accessible, fun, and delicious for everyone. We believe that great meals don\'t require fancy ingredients or complicated techniques—just love, creativity, and a good recipe.</p>',
+            'template' => '',
+        ),
+        'contact' => array(
+            'title' => 'Contact',
+            'content' => '<h2>Get in Touch</h2>
+<p>Have a question about a recipe? Want to collaborate? I\'d love to hear from you!</p>
+
+<h3>Email Me</h3>
+<p>Send your message to: <strong>' . get_bloginfo( 'admin_email' ) . '</strong></p>
+
+<h3>Response Time</h3>
+<p>I typically respond within 24-48 hours on weekdays.</p>
+
+<h3>Follow Along</h3>
+<p>Connect with me on social media for daily cooking inspiration, behind-the-scenes content, and recipe updates!</p>
+
+<p><em>Note: To add a contact form, install the "Contact Form 7" plugin and replace this text with the form shortcode.</em></p>',
+            'template' => '',
+        ),
+        'privacy-policy' => array(
+            'title' => 'Privacy Policy',
+            'content' => '<h2>Privacy Policy</h2>
+<p><strong>Last updated: ' . date( 'F j, Y' ) . '</strong></p>
+
+<h3>Information We Collect</h3>
+<p>We collect information you provide directly to us, such as when you subscribe to our newsletter, leave a comment, or contact us via email.</p>
+
+<h3>Cookies</h3>
+<p>We use cookies to enhance your browsing experience and analyze site traffic. You can control cookie settings in your browser.</p>
+
+<h3>Third-Party Services</h3>
+<p>We may use third-party services like Google Analytics to understand how visitors use our site. These services may collect information about your visit.</p>
+
+<h3>Advertising</h3>
+<p>We may display advertisements on our site. Ad partners may use cookies to serve ads based on your interests.</p>
+
+<h3>Your Rights</h3>
+<p>You have the right to access, correct, or delete your personal information. Contact us at ' . get_bloginfo( 'admin_email' ) . ' for data requests.</p>
+
+<h3>Changes to This Policy</h3>
+<p>We may update this policy from time to time. We will notify you of any changes by posting the new policy on this page.</p>',
+            'template' => '',
+        ),
+        'disclaimer' => array(
+            'title' => 'Disclaimer',
+            'content' => '<h2>Disclaimer</h2>
+<p><strong>Last updated: ' . date( 'F j, Y' ) . '</strong></p>
+
+<h3>Recipe Information</h3>
+<p>All recipes on this website are created and tested by us. However, individual results may vary based on ingredients, equipment, and cooking techniques. We cannot guarantee specific outcomes.</p>
+
+<h3>Nutritional Information</h3>
+<p>Nutritional information provided is an estimate and may vary based on specific ingredients and portion sizes. Please consult with a healthcare professional for dietary advice.</p>
+
+<h3>Affiliate Links</h3>
+<p>This website may contain affiliate links. If you purchase products through these links, we may earn a small commission at no additional cost to you.</p>
+
+<h3>External Links</h3>
+<p>Our website may contain links to external sites. We are not responsible for the content or practices of these third-party websites.</p>
+
+<h3>Liability</h3>
+<p>The information on this website is provided "as is" without warranties of any kind. We are not liable for any damages arising from your use of this website.</p>',
+            'template' => '',
+        ),
+    );
+    
+    $page_ids = array();
+    foreach ( $pages as $slug => $page_data ) {
+        // Check if page already exists
+        $existing_page = get_page_by_path( $slug );
+        if ( $existing_page ) {
+            $page_ids[ $slug ] = $existing_page->ID;
+            continue;
+        }
+        
+        // Create page
+        $page_id = wp_insert_post( array(
+            'post_title'   => $page_data['title'],
+            'post_content' => $page_data['content'],
+            'post_status'  => 'publish',
+            'post_type'    => 'page',
+            'post_name'    => $slug,
+        ) );
+        
+        if ( $page_id && ! is_wp_error( $page_id ) ) {
+            $page_ids[ $slug ] = $page_id;
+            
+            // Set privacy policy page
+            if ( $slug === 'privacy-policy' ) {
+                update_option( 'wp_page_for_privacy_policy', $page_id );
+            }
+        }
+    }
+    
+    // 2. Create primary navigation menu
+    $menu_name = 'Primary Menu';
+    $menu_exists = wp_get_nav_menu_object( $menu_name );
+    
+    if ( ! $menu_exists ) {
+        $menu_id = wp_create_nav_menu( $menu_name );
+        
+        // Add menu items
+        $menu_items = array(
+            array( 'title' => 'Home', 'url' => home_url( '/' ) ),
+            array( 'title' => 'About', 'page_id' => isset( $page_ids['about'] ) ? $page_ids['about'] : 0 ),
+            array( 'title' => 'Recipes', 'url' => home_url( '/recipes/' ) ),
+            array( 'title' => 'Contact', 'page_id' => isset( $page_ids['contact'] ) ? $page_ids['contact'] : 0 ),
+        );
+        
+        $menu_order = 0;
+        foreach ( $menu_items as $item ) {
+            $menu_order++;
+            
+            if ( isset( $item['page_id'] ) && $item['page_id'] ) {
+                wp_update_nav_menu_item( $menu_id, 0, array(
+                    'menu-item-title'     => $item['title'],
+                    'menu-item-object-id' => $item['page_id'],
+                    'menu-item-object'    => 'page',
+                    'menu-item-type'      => 'post_type',
+                    'menu-item-status'    => 'publish',
+                    'menu-item-position'  => $menu_order,
+                ) );
+            } else {
+                wp_update_nav_menu_item( $menu_id, 0, array(
+                    'menu-item-title'    => $item['title'],
+                    'menu-item-url'      => $item['url'],
+                    'menu-item-type'     => 'custom',
+                    'menu-item-status'   => 'publish',
+                    'menu-item-position' => $menu_order,
+                ) );
+            }
+        }
+        
+        // Assign menu to primary location
+        $locations = get_theme_mod( 'nav_menu_locations' );
+        $locations['primary'] = $menu_id;
+        set_theme_mod( 'nav_menu_locations', $locations );
+    }
+    
+    // 3. Create footer menu
+    $footer_menu_name = 'Footer Menu';
+    $footer_menu_exists = wp_get_nav_menu_object( $footer_menu_name );
+    
+    if ( ! $footer_menu_exists ) {
+        $footer_menu_id = wp_create_nav_menu( $footer_menu_name );
+        
+        $footer_items = array(
+            array( 'title' => 'About', 'page_id' => isset( $page_ids['about'] ) ? $page_ids['about'] : 0 ),
+            array( 'title' => 'Contact', 'page_id' => isset( $page_ids['contact'] ) ? $page_ids['contact'] : 0 ),
+            array( 'title' => 'Privacy Policy', 'page_id' => isset( $page_ids['privacy-policy'] ) ? $page_ids['privacy-policy'] : 0 ),
+            array( 'title' => 'Disclaimer', 'page_id' => isset( $page_ids['disclaimer'] ) ? $page_ids['disclaimer'] : 0 ),
+        );
+        
+        $footer_order = 0;
+        foreach ( $footer_items as $item ) {
+            $footer_order++;
+            
+            if ( isset( $item['page_id'] ) && $item['page_id'] ) {
+                wp_update_nav_menu_item( $footer_menu_id, 0, array(
+                    'menu-item-title'     => $item['title'],
+                    'menu-item-object-id' => $item['page_id'],
+                    'menu-item-object'    => 'page',
+                    'menu-item-type'      => 'post_type',
+                    'menu-item-status'    => 'publish',
+                    'menu-item-position'  => $footer_order,
+                ) );
+            }
+        }
+        
+        // Assign footer menu
+        $locations = get_theme_mod( 'nav_menu_locations' );
+        $locations['footer'] = $footer_menu_id;
+        set_theme_mod( 'nav_menu_locations', $locations );
+    }
+    
+    // Mark setup as complete
+    update_option( 'foodica_child_setup_complete', true );
+}
+add_action( 'after_switch_theme', 'foodica_child_auto_setup' );
