@@ -1,8 +1,9 @@
+<?php
 /**
- * Template Name: Recipe Post Template
+ * Single Post Template - Recipe Posts
  * 
- * Custom post template for recipe blog posts
- * Use this when creating a new recipe post
+ * Displays individual blog posts with recipe meta box data
+ * Automatically applied to all single posts
  */
 
 get_header(); ?>
