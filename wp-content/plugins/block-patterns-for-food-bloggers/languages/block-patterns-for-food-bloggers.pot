@@ -1,0 +1,104 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Block Patterns for Food Bloggers\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-25 13:19+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.2; wp-6.0\n"
+"X-Domain: block-patterns-for-food-bloggers"
+
+#. Description of the plugin
+msgid "A beautiful collection of block patterns for food bloggers"
+msgstr ""
+
+#: patterns/free/featured/about.php:7
+msgid "About Me"
+msgstr ""
+
+#. Name of the plugin
+msgid "Block Patterns for Food Bloggers"
+msgstr ""
+
+#: patterns/free/featured/book.php:7
+msgid "Book"
+msgstr ""
+
+#: patterns/free/featured/cover.php:7
+msgid "Cover #1"
+msgstr ""
+
+#: patterns/free/featured/featured-categories2.php:7
+#: patterns/free/featured/featured-categories.php:7
+msgid "Featured Categories"
+msgstr ""
+
+#: patterns/free/featured/navigate.php:7
+msgid "Getting Started"
+msgstr ""
+
+#: patterns/free/featured/hero.php:7
+msgid "Hero #1"
+msgstr ""
+
+#: patterns/free/featured/hero2.php:7
+msgid "Hero #2"
+msgstr ""
+
+#: patterns/free/featured/hero3.php:7
+msgid "Hero #3"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.wpzoom.com/"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://www.wpzoom.com/plugins/block-patterns/"
+msgstr ""
+
+#: patterns/free/featured/instagram.php:7
+msgid "Instagram CTA"
+msgstr ""
+
+#: patterns/free/featured/newsletter.php:7
+#: patterns/free/featured/newsletter3.php:7
+#: patterns/free/featured/newsletter2.php:7
+msgid "Newsletter Form"
+msgstr ""
+
+#: patterns/free/featured/loop.php:7
+msgid "Posts Grid"
+msgstr ""
+
+#: patterns/free/featured/loop2.php:7
+msgid "Posts Grid (2 Columns)"
+msgstr ""
+
+#: patterns/free/featured/loop3.php:7 patterns/free/featured/loop4.php:7
+msgid "Posts Grid (Overlay)"
+msgstr ""
+
+#: patterns/free/featured/search.php:7
+msgid "Search Bar"
+msgstr ""
+
+#: patterns/free/featured/search2.php:7
+msgid "Search Bar #2"
+msgstr ""
+
+#. Author of the plugin
+msgid "WPZOOM"
+msgstr ""
+
+#: register-patterns.php:9
+msgid "WPZOOM: Food Blog Patterns"
+msgstr ""

@@ -1,0 +1,678 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: WPZOOM Forms\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-19 13:14+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.6; wp-6.3.2\n"
+"X-Domain: wpzoom-forms"
+
+#: classes/class-wpzoom-forms-settings-page.php:829
+msgid ""
+"A privacy-first alternative to reCAPTCHA. No cookies or tracking involved. "
+"Works invisibly and only challenges users when necessary. To use Turnstile, "
+"enter your site and secret keys in the settings and add a Turnstile field to "
+"your form."
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:442
+msgid "AJAX [PRO]"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:448
+msgid "AJAX Form Submission"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:454
+msgid "Allows users to submit forms without reloading the page."
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:430
+msgid "Auto"
+msgstr ""
+
+#: elementor/widgets/wpzoom-forms-cpt/wpzoom-forms-cpt.php:288
+#: elementor/widgets/wpzoom-forms-cpt/wpzoom-forms-cpt.php:369
+msgid "Background Color"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:373
+msgid "Badge Location"
+msgstr ""
+
+#: build/fields/checkbox/block.json:1 src/fields/checkbox/block.json:1
+msgctxt "block description"
+msgid "A checkbox input field."
+msgstr ""
+
+#: build/fields/label/block.json:1 src/fields/label/block.json:1
+msgctxt "block description"
+msgid "A label which is linked to an input field."
+msgstr ""
+
+#: build/fields/multi-checkbox/block.json:1
+#: src/fields/multi-checkbox/block.json:1
+msgctxt "block description"
+msgid "A multi checkbox input field."
+msgstr ""
+
+#: build/fields/radio/block.json:1 src/fields/radio/block.json:1
+msgctxt "block description"
+msgid "A radio input field."
+msgstr ""
+
+#: build/fields/select/block.json:1 src/fields/select/block.json:1
+msgctxt "block description"
+msgid "A select dropdown input field."
+msgstr ""
+
+#: build/fields/submit/block.json:1 src/fields/submit/block.json:1
+msgctxt "block description"
+msgid "A submit button input field."
+msgstr ""
+
+#: build/fields/phone/block.json:1 src/fields/phone/block.json:1
+msgctxt "block description"
+msgid "A text input field for inputting a phone number."
+msgstr ""
+
+#: build/fields/email/block.json:1 src/fields/email/block.json:1
+msgctxt "block description"
+msgid "A text input field for inputting an email address."
+msgstr ""
+
+#: build/fields/website/block.json:1 src/fields/website/block.json:1
+msgctxt "block description"
+msgid "A text input field for inputting an website URL."
+msgstr ""
+
+#: build/fields/name/block.json:1 src/fields/name/block.json:1
+msgctxt "block description"
+msgid "A text input field for inputting names of people."
+msgstr ""
+
+#: build/fields/plain/block.json:1 src/fields/plain/block.json:1
+msgctxt "block description"
+msgid "A text input field for inputting plain text."
+msgstr ""
+
+#: build/fields/textarea/block.json:1 src/fields/textarea/block.json:1
+msgctxt "block description"
+msgid "A textarea input field."
+msgstr ""
+
+#: build/fields/datepicker/block.json:1 src/fields/datepicker/block.json:1
+msgctxt "block description"
+msgid "Allow users to enter a date"
+msgstr ""
+
+#: build/fields/multi-checkbox/block.json:1 build/fields/checkbox/block.json:1
+#: src/fields/multi-checkbox/block.json:1 src/fields/checkbox/block.json:1
+msgctxt "block keyword"
+msgid "checkbox"
+msgstr ""
+
+#: build/fields/datepicker/block.json:1 src/fields/datepicker/block.json:1
+msgctxt "block keyword"
+msgid "date"
+msgstr ""
+
+#: build/fields/email/block.json:1 src/fields/email/block.json:1
+msgctxt "block keyword"
+msgid "email"
+msgstr ""
+
+#: build/fields/multi-checkbox/block.json:1 build/fields/radio/block.json:1
+#: build/fields/submit/block.json:1 build/fields/plain/block.json:1
+#: build/fields/datepicker/block.json:1 build/fields/website/block.json:1
+#: build/fields/checkbox/block.json:1 build/fields/label/block.json:1
+#: build/fields/textarea/block.json:1 build/fields/phone/block.json:1
+#: build/fields/select/block.json:1 build/fields/name/block.json:1
+#: build/fields/email/block.json:1 src/fields/multi-checkbox/block.json:1
+#: src/fields/radio/block.json:1 src/fields/submit/block.json:1
+#: src/fields/plain/block.json:1 src/fields/datepicker/block.json:1
+#: src/fields/website/block.json:1 src/fields/checkbox/block.json:1
+#: src/fields/label/block.json:1 src/fields/textarea/block.json:1
+#: src/fields/phone/block.json:1 src/fields/select/block.json:1
+#: src/fields/name/block.json:1 src/fields/email/block.json:1
+msgctxt "block keyword"
+msgid "form"
+msgstr ""
+
+#: build/fields/multi-checkbox/block.json:1 build/fields/radio/block.json:1
+#: build/fields/submit/block.json:1 build/fields/plain/block.json:1
+#: build/fields/datepicker/block.json:1 build/fields/website/block.json:1
+#: build/fields/checkbox/block.json:1 build/fields/label/block.json:1
+#: build/fields/textarea/block.json:1 build/fields/phone/block.json:1
+#: build/fields/select/block.json:1 build/fields/name/block.json:1
+#: build/fields/email/block.json:1 src/fields/multi-checkbox/block.json:1
+#: src/fields/radio/block.json:1 src/fields/submit/block.json:1
+#: src/fields/plain/block.json:1 src/fields/datepicker/block.json:1
+#: src/fields/website/block.json:1 src/fields/checkbox/block.json:1
+#: src/fields/label/block.json:1 src/fields/textarea/block.json:1
+#: src/fields/phone/block.json:1 src/fields/select/block.json:1
+#: src/fields/name/block.json:1 src/fields/email/block.json:1
+msgctxt "block keyword"
+msgid "input"
+msgstr ""
+
+#: build/fields/label/block.json:1 src/fields/label/block.json:1
+msgctxt "block keyword"
+msgid "label"
+msgstr ""
+
+#: build/fields/name/block.json:1 src/fields/name/block.json:1
+msgctxt "block keyword"
+msgid "name"
+msgstr ""
+
+#: build/fields/phone/block.json:1 src/fields/phone/block.json:1
+msgctxt "block keyword"
+msgid "phone"
+msgstr ""
+
+#: build/fields/datepicker/block.json:1 src/fields/datepicker/block.json:1
+msgctxt "block keyword"
+msgid "picker"
+msgstr ""
+
+#: build/fields/plain/block.json:1 build/fields/datepicker/block.json:1
+#: src/fields/plain/block.json:1 src/fields/datepicker/block.json:1
+msgctxt "block keyword"
+msgid "plain"
+msgstr ""
+
+#: build/fields/radio/block.json:1 src/fields/radio/block.json:1
+msgctxt "block keyword"
+msgid "radio"
+msgstr ""
+
+#: build/fields/select/block.json:1 src/fields/select/block.json:1
+msgctxt "block keyword"
+msgid "select"
+msgstr ""
+
+#: build/fields/submit/block.json:1 src/fields/submit/block.json:1
+msgctxt "block keyword"
+msgid "submit"
+msgstr ""
+
+#: build/fields/plain/block.json:1 build/fields/datepicker/block.json:1
+#: build/fields/website/block.json:1 build/fields/phone/block.json:1
+#: build/fields/name/block.json:1 build/fields/email/block.json:1
+#: src/fields/plain/block.json:1 src/fields/datepicker/block.json:1
+#: src/fields/website/block.json:1 src/fields/phone/block.json:1
+#: src/fields/name/block.json:1 src/fields/email/block.json:1
+msgctxt "block keyword"
+msgid "text"
+msgstr ""
+
+#: build/fields/textarea/block.json:1 src/fields/textarea/block.json:1
+msgctxt "block keyword"
+msgid "textarea"
+msgstr ""
+
+#: build/fields/website/block.json:1 src/fields/website/block.json:1
+msgctxt "block keyword"
+msgid "website"
+msgstr ""
+
+#: build/fields/multi-checkbox/block.json:1 build/fields/radio/block.json:1
+#: build/fields/submit/block.json:1 build/fields/plain/block.json:1
+#: build/fields/datepicker/block.json:1 build/fields/website/block.json:1
+#: build/fields/checkbox/block.json:1 build/fields/label/block.json:1
+#: build/fields/textarea/block.json:1 build/fields/phone/block.json:1
+#: build/fields/select/block.json:1 build/fields/name/block.json:1
+#: build/fields/email/block.json:1 src/fields/multi-checkbox/block.json:1
+#: src/fields/radio/block.json:1 src/fields/submit/block.json:1
+#: src/fields/plain/block.json:1 src/fields/datepicker/block.json:1
+#: src/fields/website/block.json:1 src/fields/checkbox/block.json:1
+#: src/fields/label/block.json:1 src/fields/textarea/block.json:1
+#: src/fields/phone/block.json:1 src/fields/select/block.json:1
+#: src/fields/name/block.json:1 src/fields/email/block.json:1
+msgctxt "block keyword"
+msgid "wpzoom"
+msgstr ""
+
+#: build/fields/multi-checkbox/block.json:1 build/fields/radio/block.json:1
+#: build/fields/submit/block.json:1 build/fields/plain/block.json:1
+#: build/fields/datepicker/block.json:1 build/fields/website/block.json:1
+#: build/fields/checkbox/block.json:1 build/fields/label/block.json:1
+#: build/fields/textarea/block.json:1 build/fields/phone/block.json:1
+#: build/fields/select/block.json:1 build/fields/name/block.json:1
+#: build/fields/email/block.json:1 src/fields/multi-checkbox/block.json:1
+#: src/fields/radio/block.json:1 src/fields/submit/block.json:1
+#: src/fields/plain/block.json:1 src/fields/datepicker/block.json:1
+#: src/fields/website/block.json:1 src/fields/checkbox/block.json:1
+#: src/fields/label/block.json:1 src/fields/textarea/block.json:1
+#: src/fields/phone/block.json:1 src/fields/select/block.json:1
+#: src/fields/name/block.json:1 src/fields/email/block.json:1
+msgctxt "block style label"
+msgid "Classic"
+msgstr ""
+
+#: build/fields/multi-checkbox/block.json:1 build/fields/radio/block.json:1
+#: build/fields/submit/block.json:1 build/fields/plain/block.json:1
+#: build/fields/datepicker/block.json:1 build/fields/website/block.json:1
+#: build/fields/checkbox/block.json:1 build/fields/label/block.json:1
+#: build/fields/textarea/block.json:1 build/fields/phone/block.json:1
+#: build/fields/select/block.json:1 build/fields/name/block.json:1
+#: build/fields/email/block.json:1 src/fields/multi-checkbox/block.json:1
+#: src/fields/radio/block.json:1 src/fields/submit/block.json:1
+#: src/fields/plain/block.json:1 src/fields/datepicker/block.json:1
+#: src/fields/website/block.json:1 src/fields/checkbox/block.json:1
+#: src/fields/label/block.json:1 src/fields/textarea/block.json:1
+#: src/fields/phone/block.json:1 src/fields/select/block.json:1
+#: src/fields/name/block.json:1 src/fields/email/block.json:1
+msgctxt "block style label"
+msgid "Modern"
+msgstr ""
+
+#: build/fields/checkbox/block.json:1 src/fields/checkbox/block.json:1
+msgctxt "block title"
+msgid "Checkbox"
+msgstr ""
+
+#: build/fields/datepicker/block.json:1 src/fields/datepicker/block.json:1
+msgctxt "block title"
+msgid "Date"
+msgstr ""
+
+#: build/fields/email/block.json:1 src/fields/email/block.json:1
+msgctxt "block title"
+msgid "Email"
+msgstr ""
+
+#: build/fields/label/block.json:1 src/fields/label/block.json:1
+msgctxt "block title"
+msgid "Label"
+msgstr ""
+
+#: build/fields/multi-checkbox/block.json:1
+#: src/fields/multi-checkbox/block.json:1
+msgctxt "block title"
+msgid "Multi Checkbox"
+msgstr ""
+
+#: build/fields/name/block.json:1 src/fields/name/block.json:1
+msgctxt "block title"
+msgid "Name"
+msgstr ""
+
+#: build/fields/phone/block.json:1 src/fields/phone/block.json:1
+msgctxt "block title"
+msgid "Phone"
+msgstr ""
+
+#: build/fields/radio/block.json:1 src/fields/radio/block.json:1
+msgctxt "block title"
+msgid "Radio"
+msgstr ""
+
+#: build/fields/select/block.json:1 src/fields/select/block.json:1
+msgctxt "block title"
+msgid "Select"
+msgstr ""
+
+#: build/fields/submit/block.json:1 src/fields/submit/block.json:1
+msgctxt "block title"
+msgid "Submit"
+msgstr ""
+
+#: build/fields/plain/block.json:1 src/fields/plain/block.json:1
+msgctxt "block title"
+msgid "Text Field"
+msgstr ""
+
+#: build/fields/textarea/block.json:1 src/fields/textarea/block.json:1
+msgctxt "block title"
+msgid "Textarea"
+msgstr ""
+
+#: build/fields/website/block.json:1 src/fields/website/block.json:1
+msgctxt "block title"
+msgid "Website"
+msgstr ""
+
+#: elementor/widgets/wpzoom-forms-cpt/wpzoom-forms-cpt.php:262
+#: elementor/widgets/wpzoom-forms-cpt/wpzoom-forms-cpt.php:343
+msgid "Border Radius"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:382
+msgid "Bottom Left"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:381
+msgid "Bottom Right"
+msgstr ""
+
+#: elementor/widgets/wpzoom-forms-cpt/wpzoom-forms-cpt.php:327
+msgid "Button"
+msgstr ""
+
+#: classes/class-wpzoom-forms-template-manager.php:195
+msgid "Cancel"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:294
+#: classes/class-wpzoom-forms-settings-page.php:828
+msgid "Cloudflare Turnstile"
+msgstr ""
+
+#: elementor/widgets/wpzoom-forms-cpt/wpzoom-forms-cpt.php:275
+#: elementor/widgets/wpzoom-forms-cpt/wpzoom-forms-cpt.php:312
+#: elementor/widgets/wpzoom-forms-cpt/wpzoom-forms-cpt.php:356
+msgid "Color"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:227
+msgid "Coming Soon"
+msgstr ""
+
+#: elementor/widgets/wpzoom-forms-cpt/wpzoom-forms-cpt.php:67
+msgid "Contact Form by WPZOOM"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:803
+msgid "Customize how WPZOOM Forms loads styles and assets on your site."
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:432
+msgid "Dark"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:696
+msgid "Display custom success & error messages"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:826
+msgid ""
+"Displays a small badge and only shows a challenge (like selecting images) "
+"when suspicious activity is detected. Requires v2 site keys — not checkbox "
+"keys. Add the CAPTCHA field manually in the form editor."
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:840
+msgid "Enable seamless form submissions without page reloads"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:486
+msgid "Error Message"
+msgstr ""
+
+#: elementor/widgets/wpzoom-forms-cpt/wpzoom-forms-cpt.php:246
+msgid "Fields"
+msgstr ""
+
+#: elementor/widgets/wpzoom-forms-cpt/wpzoom-forms-cpt.php:200
+msgid "Form"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:232
+msgid "General"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:293
+msgid "Google reCAPTCHA"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:825
+msgid "Google reCAPTCHA v2 (Invisible)"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:822
+msgid "Google reCAPTCHA v3"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.wpzoom.com"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://www.wpzoom.com/plugins/wpzoom-forms"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:260
+msgid ""
+"If you want to embed a form using shortcodes in a page builder, enable this "
+"option to ensure all the needed assets are loaded."
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:383
+msgid "Inline"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:318
+msgid "Invisible reCAPTCHA v2"
+msgstr ""
+
+#: elementor/widgets/wpzoom-forms-cpt/wpzoom-forms-cpt.php:303
+msgid "Labels"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:694
+msgid ""
+"Let your forms submit instantly without page reloads. Improve user "
+"experience and reduce drop-offs with real-time feedback."
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:431
+msgid "Light"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:244
+msgid "Load default styling for forms"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:255
+msgid "Load plugin assets globally"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:480
+msgid "Message displayed after successful form submission."
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:491
+msgid "Message displayed if form submission fails."
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:502
+msgid "Message displayed if required fields are not filled in."
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:469
+msgid "Message displayed while the form is being submitted."
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:292
+msgid "No Protection"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:698
+msgid "No reloading or redirecting after form submission"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:490
+#: classes/class-wpzoom-forms-settings-page.php:492
+msgid "Oops! Something went wrong. Please try again. Please try again."
+msgstr ""
+
+#: elementor/widgets/wpzoom-forms-cpt/wpzoom-forms-cpt.php:230
+msgid "Padding"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:501
+#: classes/class-wpzoom-forms-settings-page.php:503
+msgid "Please complete all required fields before submitting."
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:226
+msgid "Premium"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-fields.php:137
+msgid "Preview"
+msgstr ""
+
+#: classes/class-wpzoom-forms-template-manager.php:187
+msgid "PRO"
+msgstr ""
+
+#: classes/class-wpzoom-forms-template-manager.php:196
+msgid "Proceed"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:812
+msgid ""
+"Protect your forms from bots, spam, and abuse using privacy-friendly "
+"verification tools. Block fake submissions while keeping the experience "
+"smooth for real users."
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:337
+msgid "reCaptcha v2 Secret Key"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:325
+msgid "reCaptcha v2 Site Key"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:319
+msgid "reCAPTCHA v3"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:361
+msgid "reCaptcha v3 Secret Key"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:349
+msgid "reCaptcha v3 Site Key"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:823
+msgid ""
+"Runs silently in the background and scores each submission to detect spam. "
+"Once enabled, it applies to all forms by default. You can disable it per "
+"form in the settings."
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-fields.php:230
+msgid "Save Changes"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:410
+msgid "Secret Key"
+msgstr ""
+
+#: elementor/widgets/wpzoom-forms-cpt/wpzoom-forms-cpt.php:177
+msgid "Select a Form"
+msgstr ""
+
+#: classes/class-wpzoom-forms-template-manager.php:158
+msgid "Select a Template"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:464
+msgid "Sending Message"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:468
+msgid "Sending your message…"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:470
+msgid "Sending..."
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Simple, user-friendly contact form plugin for WordPress that utilizes "
+"Gutenberg blocks for easy form building and customization."
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:398
+msgid "Site Key"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:271
+#: classes/class-wpzoom-forms-settings-page.php:277
+msgid "Spam Protection"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:238
+msgid "Styling"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:458
+msgid "Submit forms without page reload using AJAX."
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:475
+msgid "Success Message"
+msgstr ""
+
+#: elementor/widgets/wpzoom-forms-cpt/wpzoom-forms-cpt.php:218
+msgid "Text Color"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:481
+msgid "Thank you! Your message has been sent successfully."
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:479
+msgid "Thank you! Your message has been sent."
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:691
+msgid "This feature is only available in the PRO version"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:309
+msgid "Type"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:249
+msgid ""
+"Uncheck this option if you want your current theme to handle the styling for "
+"forms."
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:693
+msgid "Unlock AJAX Submissions with WPZOOM Forms PRO"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:700
+msgid "Upgrade to PRO"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:497
+msgid "Validation Message"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:422
+msgid "Widget Theme"
+msgstr ""
+
+#: classes/class-wpzoom-forms-settings-page.php:697
+msgid "Works seamlessly with shortcodes and blocks"
+msgstr ""
+
+#. Author of the plugin
+msgid "WPZOOM"
+msgstr ""
+
+#. Name of the plugin
+#: elementor/wpzoom-forms-elementor.php:113
+#: elementor/widgets/wpzoom-forms-cpt/wpzoom-forms-cpt.php:169
+msgid "WPZOOM Forms"
+msgstr ""
