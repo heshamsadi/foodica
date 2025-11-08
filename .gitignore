@@ -1,0 +1,115 @@
+# WordPress Core Files
+# Don't track WordPress core files
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/xmlrpc.php
+/license.txt
+/readme.html
+
+# Configuration Files
+# Keep these out of version control for security
+wp-config.php
+wp-config-local.php
+wp-config-production.php
+.htaccess
+
+# Local Development Files
+local-xdebuginfo.php
+
+# Uploads and Media
+# User uploaded content shouldn't be in git
+wp-content/uploads/
+wp-content/upgrade/
+
+# Cache and Temporary Files
+wp-content/cache/
+wp-content/backup*/
+wp-content/backups/
+wp-content/blogs.dir/
+wp-content/w3tc-config/
+
+# Logs
+*.log
+wp-content/debug.log
+error_log
+access_log
+
+# Plugin and Theme Dependencies
+# Only track custom plugins/themes, not third-party ones
+wp-content/plugins/index.php
+wp-content/themes/index.php
+
+# Common third-party plugins (uncomment if you use them)
+# wp-content/plugins/akismet/
+# wp-content/plugins/hello.php
+# wp-content/plugins/jetpack/
+# wp-content/plugins/woocommerce/
+# wp-content/plugins/yoast-seo/
+# wp-content/plugins/elementor/
+# wp-content/plugins/contact-form-7/
+
+# WordPress Themes (uncomment default themes you don't want to track)
+# wp-content/themes/twentytwentyone/
+# wp-content/themes/twentytwentytwo/
+# wp-content/themes/twentytwentythree/
+# wp-content/themes/twentytwentyfour/
+
+# Operating System Files
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node.js (if using build tools)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Build files
+dist/
+build/
+*.min.css
+*.min.js
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.staging
+
+# Composer (if using PHP dependencies)
+/vendor/
+composer.lock
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.tmp
+
+# Security
+.htpasswd
+wp-config-sample.php
+
+# Local development
+/local-*
