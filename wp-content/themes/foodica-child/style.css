@@ -619,6 +619,285 @@ INSTAGRAM FEED SECTION
 
 /* 
 =======================================================================
+RECIPE POST TEMPLATE - SINGLE POST STYLING
+=======================================================================
+*/
+
+/* Recipe Post Container */
+.recipe-post {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--foodica-spacing);
+}
+
+/* Recipe Header */
+.recipe-header {
+    text-align: center;
+    margin-bottom: var(--foodica-spacing-lg);
+    padding-bottom: var(--foodica-spacing);
+    border-bottom: 2px solid var(--foodica-gray-border);
+}
+
+.recipe-title {
+    font-family: var(--foodica-font-serif);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--foodica-text);
+    line-height: 1.3;
+    margin: 0 0 20px 0;
+}
+
+/* Recipe Meta (Timing & Nutrition) */
+.recipe-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+    font-size: 0.95rem;
+    color: var(--foodica-text-light);
+}
+
+.recipe-meta span {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    background: var(--foodica-gray-light);
+    border-radius: 20px;
+}
+
+.recipe-meta strong {
+    color: var(--foodica-text);
+    margin-right: 5px;
+}
+
+/* Featured Image */
+.recipe-featured-image {
+    margin: 0 0 var(--foodica-spacing-lg) 0;
+    border-radius: var(--foodica-border-radius);
+    overflow: hidden;
+    box-shadow: var(--foodica-shadow);
+}
+
+.recipe-main-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Recipe Introduction */
+.recipe-introduction {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--foodica-text);
+    margin-bottom: var(--foodica-spacing-lg);
+    text-align: left;
+}
+
+.recipe-introduction p {
+    margin-bottom: 1.2em;
+}
+
+/* Recipe Sections (Ingredients, Directions, Tips) */
+.recipe-section {
+    margin-bottom: var(--foodica-spacing-lg);
+    padding: var(--foodica-spacing);
+    background: var(--foodica-gray-light);
+    border-left: 4px solid var(--foodica-primary);
+}
+
+.recipe-section-title {
+    font-family: var(--foodica-font-serif);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--foodica-text);
+    margin: 0 0 20px 0;
+}
+
+/* Ingredients List */
+.recipe-ingredients-list ul,
+.recipe-ingredients-list ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recipe-ingredients-list li {
+    padding: 12px 0 12px 30px;
+    position: relative;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--foodica-text);
+    border-bottom: 1px solid var(--foodica-gray-border);
+}
+
+.recipe-ingredients-list li:last-child {
+    border-bottom: none;
+}
+
+.recipe-ingredients-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--foodica-primary);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* Directions List */
+.recipe-directions-list ol {
+    counter-reset: step-counter;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recipe-directions-list li {
+    counter-increment: step-counter;
+    padding: 20px 0 20px 50px;
+    position: relative;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--foodica-text);
+    border-bottom: 1px solid var(--foodica-gray-border);
+}
+
+.recipe-directions-list li:last-child {
+    border-bottom: none;
+}
+
+.recipe-directions-list li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 20px;
+    width: 35px;
+    height: 35px;
+    background: var(--foodica-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Tips List */
+.recipe-tips-list ul,
+.recipe-tips-list ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recipe-tips-list li {
+    padding: 15px 0 15px 35px;
+    position: relative;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--foodica-text);
+    border-bottom: 1px solid var(--foodica-gray-border);
+}
+
+.recipe-tips-list li:last-child {
+    border-bottom: none;
+}
+
+.recipe-tips-list li::before {
+    content: "💡";
+    position: absolute;
+    left: 0;
+    font-size: 1.3rem;
+}
+
+/* Recipe Footer (Tags) */
+.recipe-footer {
+    margin-top: var(--foodica-spacing-lg);
+    padding-top: var(--foodica-spacing);
+    border-top: 2px solid var(--foodica-gray-border);
+}
+
+.recipe-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.recipe-tags a {
+    display: inline-block;
+    padding: 8px 15px;
+    background: var(--foodica-gray-light);
+    color: var(--foodica-text);
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: var(--foodica-transition);
+}
+
+.recipe-tags a:hover {
+    background: var(--foodica-primary);
+    color: white;
+}
+
+/* Recipe Content - Additional Text from Main Editor */
+.recipe-content > *:not(.recipe-section) {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .recipe-title {
+        font-size: 2rem;
+    }
+    
+    .recipe-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .recipe-meta span {
+        justify-content: center;
+    }
+    
+    .recipe-section {
+        padding: 20px 15px;
+    }
+    
+    .recipe-section-title {
+        font-size: 1.5rem;
+    }
+    
+    .recipe-directions-list li {
+        padding-left: 45px;
+    }
+    
+    .recipe-directions-list li::before {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .recipe-post {
+        padding: 15px;
+    }
+    
+    .recipe-title {
+        font-size: 1.6rem;
+    }
+    
+    .recipe-introduction {
+        font-size: 1rem;
+    }
+}
+
+/* 
+=======================================================================
 PERFORMANCE OPTIMIZATIONS
 =======================================================================
 */

@@ -1,0 +1,110 @@
+[
+  {
+    "title": "Classic Chocolate Chip Cookies",
+    "intro": "These classic chocolate chip cookies are crispy on the edges, chewy in the center, and loaded with chocolate chips. Perfect for any occasion!",
+    "ingredients": [
+      "2 1/4 cups all-purpose flour",
+      "1 tsp baking soda",
+      "1 tsp salt",
+      "1 cup butter, softened",
+      "3/4 cup granulated sugar",
+      "3/4 cup packed brown sugar",
+      "2 large eggs",
+      "2 tsp vanilla extract",
+      "2 cups chocolate chips"
+    ],
+    "directions": [
+      "Preheat oven to 375°F (190°C).",
+      "Mix flour, baking soda, and salt in a bowl.",
+      "Beat butter and both sugars until creamy.",
+      "Add eggs and vanilla; beat well.",
+      "Gradually blend in flour mixture.",
+      "Stir in chocolate chips.",
+      "Drop rounded tablespoons onto ungreased cookie sheets.",
+      "Bake 9-11 minutes or until golden brown.",
+      "Cool on baking sheet for 2 minutes; remove to wire rack."
+    ],
+    "tips": [
+      "For chewier cookies, slightly underbake them",
+      "Use room temperature butter for best results",
+      "Chill dough for 30 minutes for thicker cookies"
+    ],
+    "prep_time": "15 minutes",
+    "cook_time": "11 minutes",
+    "total_time": "26 minutes",
+    "calories": "~150 kcal",
+    "servings": "48",
+    "tags": ["dessert", "cookies", "chocolate", "baking", "classic"]
+  },
+  {
+    "title": "Creamy Garlic Parmesan Pasta",
+    "intro": "A rich and creamy pasta dish that comes together in under 20 minutes. Perfect for busy weeknights when you want restaurant-quality food at home.",
+    "ingredients": [
+      "1 lb fettuccine pasta",
+      "4 tbsp butter",
+      "4 cloves garlic, minced",
+      "2 cups heavy cream",
+      "1 1/2 cups grated Parmesan cheese",
+      "Salt and black pepper to taste",
+      "Fresh parsley, chopped",
+      "Red pepper flakes (optional)"
+    ],
+    "directions": [
+      "Cook pasta according to package directions; drain and set aside.",
+      "In a large skillet, melt butter over medium heat.",
+      "Add garlic and sauté for 1-2 minutes until fragrant.",
+      "Pour in heavy cream and bring to a simmer.",
+      "Reduce heat and stir in Parmesan cheese until melted.",
+      "Season with salt and pepper.",
+      "Toss pasta in the sauce until well coated.",
+      "Garnish with parsley and red pepper flakes if desired."
+    ],
+    "tips": [
+      "Use freshly grated Parmesan for best flavor",
+      "Don't let the sauce boil or it may separate",
+      "Add grilled chicken or shrimp for extra protein"
+    ],
+    "prep_time": "5 minutes",
+    "cook_time": "15 minutes",
+    "total_time": "20 minutes",
+    "calories": "~520 kcal",
+    "servings": "6",
+    "tags": ["pasta", "italian", "creamy", "garlic", "quick-dinner"]
+  },
+  {
+    "title": "Honey Glazed Salmon",
+    "intro": "Perfectly cooked salmon with a sweet and savory honey glaze. This healthy dinner option is packed with omega-3s and takes just 20 minutes to make.",
+    "ingredients": [
+      "4 salmon fillets (6 oz each)",
+      "1/4 cup honey",
+      "3 tbsp soy sauce",
+      "2 tbsp lemon juice",
+      "2 cloves garlic, minced",
+      "1 tsp ginger, grated",
+      "2 tbsp olive oil",
+      "Sesame seeds for garnish",
+      "Green onions, sliced"
+    ],
+    "directions": [
+      "Preheat oven to 400°F (200°C).",
+      "Mix honey, soy sauce, lemon juice, garlic, and ginger in a bowl.",
+      "Heat olive oil in an oven-safe skillet over medium-high heat.",
+      "Sear salmon skin-side up for 3 minutes.",
+      "Flip salmon and brush with half the glaze.",
+      "Transfer skillet to oven and bake for 8-10 minutes.",
+      "Brush with remaining glaze halfway through.",
+      "Garnish with sesame seeds and green onions before serving."
+    ],
+    "tips": [
+      "Don't overcook salmon - it should still be slightly pink in the center",
+      "Let salmon rest for 2-3 minutes before serving",
+      "Serve over rice or with roasted vegetables"
+    ],
+    "prep_time": "5 minutes",
+    "cook_time": "15 minutes",
+    "total_time": "20 minutes",
+    "calories": "~380 kcal",
+    "servings": "4",
+    "tags": ["salmon", "seafood", "healthy", "gluten-free", "honey"]
+  }
+]

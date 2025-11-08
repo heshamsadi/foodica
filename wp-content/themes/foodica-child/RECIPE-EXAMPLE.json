@@ -1,0 +1,33 @@
+{
+  "recipe_title": "BUTTER-POACHED LOBSTER",
+  "intro": "Discover the luxurious taste of butter-poached lobster. This recipe creates tender, succulent lobster meat infused with rich butter and delicate garlic flavors.",
+  "ingredients": [
+    "4 lobster tails",
+    "1 cup unsalted butter, cut into cubes",
+    "1/4 cup water",
+    "2 cloves garlic, minced (optional)",
+    "1 tablespoon lemon juice",
+    "Salt and pepper, to taste",
+    "Fresh parsley, chopped (for garnish)",
+    "Lemon wedges (for serving)"
+  ],
+  "directions": [
+    "Prepare the Butter Sauce: In a medium saucepan, heat 1/4 cup water over medium-low heat until it just begins to simmer.",
+    "Emulsify the Butter: Slowly add the butter cubes, one at a time, whisking constantly to create a smooth, emulsified butter sauce (known as beurre monté).",
+    "Flavor the Sauce: Once all the butter is melted and smooth, stir in the minced garlic (if using), lemon juice, and a pinch of salt and pepper.",
+    "Poach the Lobster: Reduce the heat to low, keeping the butter sauce warm but not boiling. Carefully place the lobster tails in the butter sauce, ensuring they are fully submerged. Poach for 6-8 minutes, or until the meat is opaque and cooked through.",
+    "Serve: Remove the lobster tails from the butter and serve immediately. Garnish with fresh parsley and a drizzle of the butter sauce. Serve with lemon wedges on the side."
+  ],
+  "tips": [
+    "For best results, keep the sauce at a low temperature to avoid separation.",
+    "Serve with crusty bread or over a bed of pasta to make it a complete meal.",
+    "This method also works well for poaching shrimp or scallops for a similar effect."
+  ],
+  "prep_time": "10 minutes",
+  "cook_time": "10 minutes",
+  "total_time": "20 minutes",
+  "calories": "~400 kcal",
+  "servings": "4",
+  "category": "Recipes",
+  "tags": ["seafood", "lobster", "butter", "gourmet", "main-course"]
+}

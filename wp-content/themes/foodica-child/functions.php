@@ -419,3 +419,178 @@ function foodica_child_auto_setup() {
     update_option( 'foodica_child_setup_complete', true );
 }
 add_action( 'after_switch_theme', 'foodica_child_auto_setup' );
+
+
+// ===================================================================
+// RECIPE POST TEMPLATE - MANUAL CREATION SYSTEM
+// ===================================================================
+
+/**
+ * Add Recipe Meta Box to Post Editor
+ * This creates the easy interface for manual recipe creation
+ */
+function foodica_recipe_add_meta_boxes() {
+    add_meta_box(
+        'foodica_recipe_details',
+        '📋 Recipe Details',
+        'foodica_recipe_meta_box_callback',
+        'post',
+        'normal',
+        'high'
+    );
+}
+add_action( 'add_meta_boxes', 'foodica_recipe_add_meta_boxes' );
+
+/**
+ * Recipe Meta Box HTML
+ * Creates the form fields in the post editor
+ */
+function foodica_recipe_meta_box_callback( $post ) {
+    // Nonce for security
+    wp_nonce_field( 'foodica_recipe_meta_box', 'foodica_recipe_meta_box_nonce' );
+    
+    // Get existing values
+    $intro = get_post_meta( $post->ID, 'recipe_introduction', true );
+    $ingredients = get_post_meta( $post->ID, 'recipe_ingredients', true );
+    $directions = get_post_meta( $post->ID, 'recipe_directions', true );
+    $tips = get_post_meta( $post->ID, 'recipe_tips', true );
+    $prep_time = get_post_meta( $post->ID, 'recipe_prep_time', true );
+    $cook_time = get_post_meta( $post->ID, 'recipe_cook_time', true );
+    $total_time = get_post_meta( $post->ID, 'recipe_total_time', true );
+    $servings = get_post_meta( $post->ID, 'recipe_servings', true );
+    $calories = get_post_meta( $post->ID, 'recipe_calories', true );
+    
+    ?>
+    <style>
+        .recipe-meta-box { padding: 15px 0; }
+        .recipe-meta-box .form-section { margin-bottom: 25px; border-bottom: 1px solid #ddd; padding-bottom: 20px; }
+        .recipe-meta-box .form-section:last-child { border-bottom: none; }
+        .recipe-meta-box label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 14px; color: #23282d; }
+        .recipe-meta-box textarea { width: 100%; min-height: 120px; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; font-size: 14px; }
+        .recipe-meta-box input[type="text"] { width: 100%; padding: 8px 10px; border: 1px solid #ddd; border-radius: 4px; }
+        .recipe-meta-box .time-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .recipe-meta-box .nutrition-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .recipe-meta-box .help-text { font-size: 12px; color: #666; margin-top: 5px; font-style: italic; }
+        .recipe-meta-box .section-title { font-size: 16px; font-weight: 700; color: #e05454; margin-bottom: 15px; display: block; }
+    </style>
+    
+    <div class="recipe-meta-box">
+        
+        <!-- Introduction -->
+        <div class="form-section">
+            <span class="section-title">📝 Introduction</span>
+            <label for="recipe_introduction">Recipe Introduction (2-3 paragraphs)</label>
+            <textarea name="recipe_introduction" id="recipe_introduction" rows="4"><?php echo esc_textarea( $intro ); ?></textarea>
+            <p class="help-text">Write a compelling introduction that describes the dish, its flavors, and why people will love it.</p>
+        </div>
+        
+        <!-- Timing & Servings -->
+        <div class="form-section">
+            <span class="section-title">⏱️ Timing & Servings</span>
+            <div class="time-grid">
+                <div>
+                    <label for="recipe_prep_time">Prep Time</label>
+                    <input type="text" name="recipe_prep_time" id="recipe_prep_time" value="<?php echo esc_attr( $prep_time ); ?>" placeholder="e.g. 15 minutes" />
+                </div>
+                <div>
+                    <label for="recipe_cook_time">Cook Time</label>
+                    <input type="text" name="recipe_cook_time" id="recipe_cook_time" value="<?php echo esc_attr( $cook_time ); ?>" placeholder="e.g. 30 minutes" />
+                </div>
+                <div>
+                    <label for="recipe_total_time">Total Time</label>
+                    <input type="text" name="recipe_total_time" id="recipe_total_time" value="<?php echo esc_attr( $total_time ); ?>" placeholder="e.g. 45 minutes" />
+                </div>
+            </div>
+        </div>
+        
+        <!-- Nutrition -->
+        <div class="form-section">
+            <span class="section-title">🍽️ Nutrition Information</span>
+            <div class="nutrition-grid">
+                <div>
+                    <label for="recipe_servings">Servings</label>
+                    <input type="text" name="recipe_servings" id="recipe_servings" value="<?php echo esc_attr( $servings ); ?>" placeholder="e.g. 4 servings" />
+                </div>
+                <div>
+                    <label for="recipe_calories">Calories per Serving</label>
+                    <input type="text" name="recipe_calories" id="recipe_calories" value="<?php echo esc_attr( $calories ); ?>" placeholder="e.g. 350 kcal" />
+                </div>
+            </div>
+        </div>
+        
+        <!-- Ingredients -->
+        <div class="form-section">
+            <span class="section-title">🥕 Ingredients</span>
+            <label for="recipe_ingredients">Ingredients List</label>
+            <textarea name="recipe_ingredients" id="recipe_ingredients" rows="8"><?php echo esc_textarea( $ingredients ); ?></textarea>
+            <p class="help-text">Enter each ingredient on a new line. Use bullet points or numbers. Example:<br>
+            • 2 cups all-purpose flour<br>
+            • 1 cup granulated sugar<br>
+            • 1/2 cup butter, softened</p>
+        </div>
+        
+        <!-- Directions -->
+        <div class="form-section">
+            <span class="section-title">👨‍🍳 Directions</span>
+            <label for="recipe_directions">Step-by-Step Directions</label>
+            <textarea name="recipe_directions" id="recipe_directions" rows="10"><?php echo esc_textarea( $directions ); ?></textarea>
+            <p class="help-text">Write clear, numbered steps. Example:<br>
+            1. Preheat oven to 350°F (175°C).<br>
+            2. In a large bowl, cream together butter and sugar.<br>
+            3. Add eggs one at a time, mixing well after each addition.</p>
+        </div>
+        
+        <!-- Tips -->
+        <div class="form-section">
+            <span class="section-title">💡 Tips & Notes</span>
+            <label for="recipe_tips">Recipe Tips (Optional)</label>
+            <textarea name="recipe_tips" id="recipe_tips" rows="5"><?php echo esc_textarea( $tips ); ?></textarea>
+            <p class="help-text">Share helpful tips, substitutions, storage advice, or variations. Each tip on a new line.</p>
+        </div>
+        
+    </div>
+    <?php
+}
+
+/**
+ * Save Recipe Meta Box Data
+ */
+function foodica_recipe_save_meta_box( $post_id ) {
+    // Check nonce
+    if ( ! isset( $_POST['foodica_recipe_meta_box_nonce'] ) ) {
+        return;
+    }
+    if ( ! wp_verify_nonce( $_POST['foodica_recipe_meta_box_nonce'], 'foodica_recipe_meta_box' ) ) {
+        return;
+    }
+    
+    // Check autosave
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+    
+    // Check permissions
+    if ( ! current_user_can( 'edit_post', $post_id ) ) {
+        return;
+    }
+    
+    // Save fields
+    $fields = array(
+        'recipe_introduction',
+        'recipe_ingredients',
+        'recipe_directions',
+        'recipe_tips',
+        'recipe_prep_time',
+        'recipe_cook_time',
+        'recipe_total_time',
+        'recipe_servings',
+        'recipe_calories'
+    );
+    
+    foreach ( $fields as $field ) {
+        if ( isset( $_POST[ $field ] ) ) {
+            update_post_meta( $post_id, $field, sanitize_textarea_field( $_POST[ $field ] ) );
+        }
+    }
+}
+add_action( 'save_post', 'foodica_recipe_save_meta_box' );
