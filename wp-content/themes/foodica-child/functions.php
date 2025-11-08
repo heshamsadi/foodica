@@ -1,6 +1,6 @@
 <?php
 /**
- * Foodica Child Theme Functions
+ * Foodica Child Theme - Professional Homepage
  * 
  * @package Foodica Child
  * @version 1.0.0
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 function foodica_child_enqueue_styles() {
-    // Get parent and child theme versions
+    // Get parent and child theme versions for cache busting
     $parent_version = wp_get_theme( 'foodica' )->get( 'Version' );
     $child_version = wp_get_theme()->get( 'Version' );
     
@@ -30,7 +30,7 @@ function foodica_child_enqueue_styles() {
         $parent_version
     );
     
-    // Enqueue child stylesheet (will override parent styles)
+    // Enqueue child stylesheet
     wp_enqueue_style( 
         'foodica-child-style', 
         get_stylesheet_uri(),
@@ -42,150 +42,135 @@ add_action( 'wp_enqueue_scripts', 'foodica_child_enqueue_styles', 15 );
 
 /**
  * ========================================================================
- * REGISTER CUSTOM WIDGET AREAS FOR HOMEPAGE ADS
+ * REGISTER WIDGET AREAS FOR HOMEPAGE
  * ========================================================================
  */
 
-function foodica_child_homepage_widgets() {
-    // Homepage Ad Slot 1 - Below Slider
-    register_sidebar( array(
-        'name'          => __( 'Homepage Ad Slot 1', 'foodica-child' ),
-        'id'            => 'home-ad-slot-1',
-        'description'   => __( 'Ad slot displayed below the featured slider (728x90 or responsive)', 'foodica-child' ),
-        'before_widget' => '<div class="ad-slot-home-1">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h3 class="widget-title" style="display:none;">',
-        'after_title'   => '</h3>',
-    ) );
+function foodica_child_register_widget_areas() {
+    $widget_areas = array(
+        'home-welcome' => array(
+            'name' => __( 'Homepage Welcome Section', 'foodica-child' ),
+            'description' => __( 'Widgets in the welcome hero section', 'foodica-child' ),
+        ),
+        'home-featured-slider' => array(
+            'name' => __( 'Homepage Featured Slider', 'foodica-child' ),
+            'description' => __( 'Above the featured slider', 'foodica-child' ),
+        ),
+        'home-recipes-grid' => array(
+            'name' => __( 'Homepage Recipe Grid Ads', 'foodica-child' ),
+            'description' => __( 'Ad slots between recipe cards', 'foodica-child' ),
+        ),
+        'home-categories' => array(
+            'name' => __( 'Homepage Categories Section', 'foodica-child' ),
+            'description' => __( 'Below category grid', 'foodica-child' ),
+        ),
+        'home-newsletter' => array(
+            'name' => __( 'Homepage Newsletter', 'foodica-child' ),
+            'description' => __( 'Newsletter form area', 'foodica-child' ),
+        ),
+        'home-instagram' => array(
+            'name' => __( 'Homepage Instagram Feed', 'foodica-child' ),
+            'description' => __( 'Instagram widget area', 'foodica-child' ),
+        ),
+    );
     
-    // Homepage Ad Slot 2 - Between Recipe Cards
-    register_sidebar( array(
-        'name'          => __( 'Homepage Ad Slot 2', 'foodica-child' ),
-        'id'            => 'home-ad-slot-2',
-        'description'   => __( 'Ad slot displayed between recipe cards (970x250 or responsive)', 'foodica-child' ),
-        'before_widget' => '<div class="ad-slot-home-2">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h3 class="widget-title" style="display:none;">',
-        'after_title'   => '</h3>',
-    ) );
-    
-    // Homepage Ad Slot 3 - Above Footer
-    register_sidebar( array(
-        'name'          => __( 'Homepage Ad Slot 3', 'foodica-child' ),
-        'id'            => 'home-ad-slot-3',
-        'description'   => __( 'Ad slot displayed above footer (970x90 or responsive)', 'foodica-child' ),
-        'before_widget' => '<div class="ad-slot-home-3">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h3 class="widget-title" style="display:none;">',
-        'after_title'   => '</h3>',
-    ) );
+    foreach ( $widget_areas as $id => $area ) {
+        register_sidebar( array(
+            'name'          => $area['name'],
+            'id'            => $id,
+            'description'   => $area['description'],
+            'before_widget' => '<div class="widget-area">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        ) );
+    }
 }
-add_action( 'widgets_init', 'foodica_child_homepage_widgets' );
+add_action( 'widgets_init', 'foodica_child_register_widget_areas' );
 
 /**
  * ========================================================================
- * PRECONNECT TO ADSENSE DOMAINS FOR FASTER LOADING
+ * CUSTOM SLIDER POSTS QUERY
  * ========================================================================
  */
 
-function foodica_child_adsense_preconnect() {
-    // Only on homepage
-    if ( ! is_front_page() ) {
-        return;
+function foodica_child_slider_posts( $count = 5 ) {
+    $args = array(
+        'post_type'      => 'post',
+        'posts_per_page' => $count,
+        'category_name'  => 'featured',
+        'meta_key'       => '_thumbnail_id',
+        'orderby'        => 'modified',
+        'order'          => 'DESC',
+        'no_found_rows'  => true,
+        'post_status'    => 'publish',
+    );
+    
+    $query = new WP_Query( $args );
+    
+    // Fallback: if no 'featured' category, get latest posts with thumbnails
+    if ( ! $query->have_posts() ) {
+        $args['category_name'] = '';
+        $query = new WP_Query( $args );
     }
     
-    echo "\n<!-- AdSense DNS Prefetch & Preconnect -->\n";
-    echo '<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>' . "\n";
-    echo '<link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>' . "\n";
-    echo '<link rel="preconnect" href="https://adservice.google.com" crossorigin>' . "\n";
-    echo '<link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">' . "\n";
-    echo '<link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">' . "\n";
-    echo "<!-- End AdSense Preconnect -->\n\n";
+    return $query;
 }
-add_action( 'wp_head', 'foodica_child_adsense_preconnect', 1 );
 
 /**
  * ========================================================================
- * LAZY LOAD ADSENSE ADS WITH INTERSECTION OBSERVER
+ * CALCULATE READ TIME
  * ========================================================================
  */
 
-function foodica_child_lazy_adsense_script() {
-    // Only on homepage
-    if ( ! is_front_page() ) {
-        return;
+function foodica_child_read_time( $post_id = null ) {
+    if ( ! $post_id ) {
+        $post_id = get_the_ID();
     }
-    ?>
-    <script>
-    /**
-     * Lazy Load AdSense Ads
-     * Improves Core Web Vitals (LCP, FID, CLS)
-     */
-    document.addEventListener('DOMContentLoaded', function() {
-        // Check if IntersectionObserver is supported
-        if ('IntersectionObserver' in window) {
-            const adSlots = document.querySelectorAll('.ad-slot-home-1, .ad-slot-home-2, .ad-slot-home-3');
-            
-            // Observer configuration - load ads 200px before entering viewport
-            const observerOptions = {
-                root: null,
-                rootMargin: '200px',
-                threshold: 0.01
-            };
-            
-            const adObserver = new IntersectionObserver(function(entries, observer) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        const adSlot = entry.target;
-                        const adScript = adSlot.querySelector('ins.adsbygoogle');
-                        
-                        if (adScript && !adScript.dataset.adsbygoogleStatus) {
-                            try {
-                                (adsbygoogle = window.adsbygoogle || []).push({});
-                            } catch (e) {
-                                console.error('AdSense loading error:', e);
-                            }
-                        }
-                        
-                        // Stop observing this ad slot
-                        observer.unobserve(adSlot);
-                    }
-                });
-            }, observerOptions);
-            
-            // Start observing each ad slot
-            adSlots.forEach(function(slot) {
-                adObserver.observe(slot);
-            });
-        } else {
-            // Fallback for browsers without IntersectionObserver
-            // Load ads immediately
-            if (typeof adsbygoogle !== 'undefined') {
-                const adScripts = document.querySelectorAll('ins.adsbygoogle');
-                adScripts.forEach(function() {
-                    try {
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    } catch (e) {
-                        console.error('AdSense loading error:', e);
-                    }
-                });
-            }
-        }
-    });
-    </script>
-    <?php
+    
+    $content = get_post_field( 'post_content', $post_id );
+    $word_count = str_word_count( strip_tags( $content ) );
+    $read_time = ceil( $word_count / 200 ); // 200 words per minute
+    
+    return max( 1, $read_time ); // Minimum 1 minute
 }
-add_action( 'wp_footer', 'foodica_child_lazy_adsense_script', 99 );
 
 /**
  * ========================================================================
- * CUSTOM EXCERPT LENGTH FOR HOMEPAGE RECIPE CARDS
+ * GET CATEGORY BACKGROUND IMAGE
+ * ========================================================================
+ */
+
+function foodica_child_category_bg( $category_id ) {
+    // Try to get first post with thumbnail from this category
+    $args = array(
+        'category'       => $category_id,
+        'posts_per_page' => 1,
+        'meta_key'       => '_thumbnail_id',
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+        'no_found_rows'  => true,
+    );
+    
+    $posts = get_posts( $args );
+    
+    if ( $posts && has_post_thumbnail( $posts[0]->ID ) ) {
+        return get_the_post_thumbnail_url( $posts[0]->ID, 'large' );
+    }
+    
+    // Fallback to placeholder
+    return get_template_directory_uri() . '/screenshot.png';
+}
+
+/**
+ * ========================================================================
+ * CUSTOM EXCERPT LENGTH FOR HOMEPAGE
  * ========================================================================
  */
 
 function foodica_child_custom_excerpt_length( $length ) {
     if ( is_front_page() ) {
-        return 20; // 20 words for homepage recipe cards
+        return 20;
     }
     return $length;
 }
@@ -193,134 +178,18 @@ add_filter( 'excerpt_length', 'foodica_child_custom_excerpt_length', 999 );
 
 /**
  * ========================================================================
- * ADD ELLIPSIS TO EXCERPTS
+ * CUSTOM EXCERPT MORE TEXT
  * ========================================================================
  */
 
 function foodica_child_excerpt_more( $more ) {
-    if ( is_front_page() ) {
-        return '...';
-    }
-    return $more;
+    return '...';
 }
 add_filter( 'excerpt_more', 'foodica_child_excerpt_more' );
 
 /**
  * ========================================================================
- * HELPER FUNCTION: GET FEATURED POSTS FOR SLIDER
- * ========================================================================
- */
-
-function foodica_child_get_slider_posts( $count = 3 ) {
-    // Check if parent theme has featured content function
-    if ( function_exists( 'foodica_get_featured_content' ) ) {
-        $posts = foodica_get_featured_content();
-        return array_slice( $posts, 0, $count );
-    }
-    
-    // Fallback: Get posts from 'featured-recipes' category
-    $args = array(
-        'post_type'      => 'post',
-        'posts_per_page' => $count,
-        'category_name'  => 'featured-recipes',
-        'post_status'    => 'publish',
-        'orderby'        => 'date',
-        'order'          => 'DESC',
-    );
-    
-    // If no 'featured-recipes' category, get latest posts with thumbnails
-    $featured_posts = new WP_Query( $args );
-    
-    if ( ! $featured_posts->have_posts() ) {
-        $args = array(
-            'post_type'      => 'post',
-            'posts_per_page' => $count,
-            'post_status'    => 'publish',
-            'meta_key'       => '_thumbnail_id',
-            'orderby'        => 'date',
-            'order'          => 'DESC',
-        );
-        $featured_posts = new WP_Query( $args );
-    }
-    
-    return $featured_posts;
-}
-
-/**
- * ========================================================================
- * HELPER FUNCTION: GET RECIPE CATEGORIES WITH THUMBNAILS
- * ========================================================================
- */
-
-function foodica_child_get_recipe_categories( $count = 4 ) {
-    $categories = get_categories( array(
-        'orderby'    => 'count',
-        'order'      => 'DESC',
-        'number'     => $count,
-        'hide_empty' => true,
-    ) );
-    
-    return $categories;
-}
-
-/**
- * ========================================================================
- * OPTIMIZE PERFORMANCE: DISABLE EMOJIS
- * ========================================================================
- */
-
-function foodica_child_disable_emojis() {
-    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-    remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-    remove_action( 'wp_print_styles', 'print_emoji_styles' );
-    remove_action( 'admin_print_styles', 'print_emoji_styles' );
-    remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-    remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
-    remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-}
-add_action( 'init', 'foodica_child_disable_emojis' );
-
-/**
- * ========================================================================
- * ADD ASYNC/DEFER TO SCRIPTS FOR BETTER PERFORMANCE
- * ========================================================================
- */
-
-function foodica_child_async_scripts( $tag, $handle, $src ) {
-    // Scripts to defer
-    $defer_scripts = array(
-        'jquery-migrate',
-    );
-    
-    // Scripts to make async
-    $async_scripts = array();
-    
-    if ( in_array( $handle, $defer_scripts ) ) {
-        return str_replace( ' src', ' defer src', $tag );
-    }
-    
-    if ( in_array( $handle, $async_scripts ) ) {
-        return str_replace( ' src', ' async src', $tag );
-    }
-    
-    return $tag;
-}
-add_filter( 'script_loader_tag', 'foodica_child_async_scripts', 10, 3 );
-
-/**
- * ========================================================================
- * SECURITY: REMOVE WORDPRESS VERSION NUMBER
- * ========================================================================
- */
-
-function foodica_child_remove_version() {
-    return '';
-}
-add_filter( 'the_generator', 'foodica_child_remove_version' );
-
-/**
- * ========================================================================
- * ADD SUPPORT FOR ADDITIONAL FEATURES
+ * ADD THEME SUPPORT
  * ========================================================================
  */
 
@@ -328,28 +197,11 @@ function foodica_child_theme_setup() {
     // Add support for responsive embeds
     add_theme_support( 'responsive-embeds' );
     
-    // Add support for editor color palette (match Foodica colors)
-    add_theme_support( 'editor-color-palette', array(
-        array(
-            'name'  => __( 'Primary Red', 'foodica-child' ),
-            'slug'  => 'primary-red',
-            'color' => '#e05454',
-        ),
-        array(
-            'name'  => __( 'Dark Text', 'foodica-child' ),
-            'slug'  => 'dark-text',
-            'color' => '#333333',
-        ),
-        array(
-            'name'  => __( 'Light Gray', 'foodica-child' ),
-            'slug'  => 'light-gray',
-            'color' => '#f9f9f9',
-        ),
-        array(
-            'name'  => __( 'White', 'foodica-child' ),
-            'slug'  => 'white',
-            'color' => '#ffffff',
-        ),
-    ) );
+    // Add support for custom line height
+    add_theme_support( 'custom-line-height' );
+    
+    // Add support for custom spacing
+    add_theme_support( 'custom-spacing' );
 }
+add_action( 'after_setup_theme', 'foodica_child_theme_setup' );
 add_action( 'after_setup_theme', 'foodica_child_theme_setup' );

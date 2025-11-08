@@ -1,8 +1,8 @@
 /*
-Theme Name: Foodica Child
+Theme Name: Foodica Child - Professional
 Template: foodica
 Version: 1.0.0
-Description: Child theme for Foodica with AdSense optimization and custom homepage
+Description: Professional child theme for Foodica with stunning homepage design
 Author: Your Name
 Author URI: https://yoursite.com
 License: GPL v3 or later
@@ -12,424 +12,589 @@ Text Domain: foodica-child
 
 /* 
 =======================================================================
-IMPORT PARENT THEME STYLES - DO NOT REMOVE
+PARENT THEME STYLES - ENQUEUED VIA FUNCTIONS.PHP
 =======================================================================
 */
 
-/* Parent styles will be enqueued via functions.php for better performance */
+/* Parent styles loaded via wp_enqueue_style for better performance */
 
 /* 
 =======================================================================
-FOODICA DESIGN SYSTEM VARIABLES
+FOODICA DESIGN SYSTEM VARIABLES (100% MATCHING)
 =======================================================================
 */
 
 :root {
     --foodica-primary: #e05454;
-    --foodica-primary-dark: #c54545;
+    --foodica-primary-hover: #c54545;
+    --foodica-font-serif: 'Lora', Georgia, serif;
+    --foodica-font-sans: 'Open Sans', system-ui, sans-serif;
     --foodica-bg: #ffffff;
     --foodica-text: #333333;
     --foodica-text-light: #999999;
     --foodica-gray-light: #f9f9f9;
     --foodica-gray-border: #eeeeee;
+    --foodica-spacing: 30px;
     --foodica-spacing-sm: 15px;
-    --foodica-spacing-md: 30px;
-    --foodica-spacing-lg: 40px;
-    --foodica-transition: all 0.3s ease;
+    --foodica-spacing-lg: 60px;
+    --foodica-border-radius: 0px;
+    --foodica-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --foodica-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 /* 
 =======================================================================
-ADSENSE AD SLOT CONTAINERS
+HERO SLIDER SECTION (MATCHES FOODICA'S WPZOOM SLIDER)
 =======================================================================
 */
 
-/* Base styles for all ad slots */
-.ad-slot-home-1,
-.ad-slot-home-2,
-.ad-slot-home-3 {
-    margin: var(--foodica-spacing-md) auto;
-    padding: 0 var(--foodica-spacing-sm);
-    text-align: center;
-    max-width: 100%;
-    overflow: hidden;
-}
-
-/* Ensure AdSense doesn't overflow on mobile */
-.ad-slot-home-1 ins.adsbygoogle,
-.ad-slot-home-2 ins.adsbygoogle,
-.ad-slot-home-3 ins.adsbygoogle {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-/* Reserve space to prevent Cumulative Layout Shift (CLS) */
-.ad-slot-home-1 {
-    min-height: 90px; /* Standard leaderboard */
-}
-
-.ad-slot-home-2 {
-    min-height: 250px; /* Large rectangle */
-}
-
-.ad-slot-home-3 {
-    min-height: 90px; /* Standard leaderboard */
-}
-
-/* Desktop ad widths */
-@media screen and (min-width: 768px) {
-    .ad-slot-home-1 {
-        max-width: 728px;
-    }
-    
-    .ad-slot-home-2 {
-        max-width: 970px;
-    }
-    
-    .ad-slot-home-3 {
-        max-width: 970px;
-    }
-}
-
-/* Mobile responsiveness */
-@media screen and (max-width: 767px) {
-    .ad-slot-home-1,
-    .ad-slot-home-2,
-    .ad-slot-home-3 {
-        min-height: 50px;
-        margin: 20px auto;
-    }
-}
-
-/* 
-=======================================================================
-WELCOME SECTION - MATCHES FOODICA TYPOGRAPHY
-=======================================================================
-*/
-
-.welcome-section {
-    max-width: 800px;
-    margin: 0 auto var(--foodica-spacing-lg);
-    padding: var(--foodica-spacing-lg) var(--foodica-spacing-sm);
-    background: var(--foodica-bg);
-}
-
-.welcome-section h1 {
-    font-family: 'Lora', Georgia, serif;
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: var(--foodica-text);
-    text-align: center;
-    margin: 0 0 20px;
-    line-height: 1.3;
-}
-
-.welcome-section p {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--foodica-text);
-    max-width: 700px;
-    margin: 0 auto 20px;
-    text-align: left;
-}
-
-@media screen and (max-width: 767px) {
-    .welcome-section h1 {
-        font-size: 1.8rem;
-    }
-    
-    .welcome-section p {
-        font-size: 1rem;
-    }
-}
-
-/* 
-=======================================================================
-LATEST RECIPES GRID - MATCHES FOODICA POST CARDS
-=======================================================================
-*/
-
-.latest-recipes-section {
-    margin: var(--foodica-spacing-lg) 0;
-}
-
-.section-title-home {
-    font-family: 'Lora', Georgia, serif;
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--foodica-text);
-    margin: 0 0 var(--foodica-spacing-md);
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--foodica-gray-border);
-}
-
-.latest-recipes-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--foodica-spacing-md);
-    margin: 0 0 var(--foodica-spacing-md);
-}
-
-.recipe-card-home {
-    background: var(--foodica-bg);
-    border: 1px solid var(--foodica-gray-border);
-    border-radius: 0;
-    overflow: hidden;
-    transition: var(--foodica-transition);
-    display: flex;
-    flex-direction: column;
-}
-
-.recipe-card-home:hover {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transform: translateY(-2px);
-}
-
-.recipe-card-home .post-thumb {
+#slider.style-1 {
+    margin-bottom: var(--foodica-spacing-lg);
     position: relative;
-    overflow: hidden;
-    margin: 0;
-}
-
-.recipe-card-home .post-thumb a {
-    display: block;
-}
-
-.recipe-card-home .post-thumb img {
     width: 100%;
-    height: auto;
-    display: block;
-    transition: var(--foodica-transition);
 }
 
-.recipe-card-home:hover .post-thumb img {
-    transform: scale(1.05);
+#slider.style-1 .slides {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.recipe-card-home .entry-body {
-    padding: 20px;
-    flex-grow: 1;
+#slider.style-1 .slide {
+    position: relative;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+#slider.style-1 .slide-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+#slider.style-1 .slide-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#slider.style-1 .slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.recipe-card-home .cat-links {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 10px;
+#slider.style-1 .slide-header {
+    text-align: center;
+    max-width: 800px;
+    padding: var(--foodica-spacing);
+}
+
+#slider.style-1 .slide-header .cat-links {
     display: block;
-}
-
-.recipe-card-home .cat-links a {
-    color: var(--foodica-primary);
-    text-decoration: none;
-    transition: var(--foodica-transition);
-}
-
-.recipe-card-home .cat-links a:hover {
-    color: var(--foodica-primary-dark);
-}
-
-.recipe-card-home .entry-title {
-    font-family: 'Lora', Georgia, serif;
-    font-size: 1.2rem;
-    font-weight: 600;
-    line-height: 1.4;
-    margin: 0 0 10px;
-}
-
-.recipe-card-home .entry-title a {
-    color: var(--foodica-text);
-    text-decoration: none;
-    transition: var(--foodica-transition);
-}
-
-.recipe-card-home .entry-title a:hover {
-    color: var(--foodica-primary);
-}
-
-.recipe-card-home .entry-meta {
-    font-size: 0.85rem;
-    color: var(--foodica-text-light);
-    margin-bottom: 10px;
-}
-
-.recipe-card-home .entry-meta span {
-    margin-right: 10px;
-}
-
-.recipe-card-home .entry-excerpt {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--foodica-text);
     margin-bottom: 15px;
-    flex-grow: 1;
 }
 
-/* Responsive Grid */
-@media screen and (max-width: 1024px) {
-    .latest-recipes-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-    }
+#slider.style-1 .slide-header .cat-links a {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-decoration: none;
 }
 
-@media screen and (max-width: 767px) {
-    .latest-recipes-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+#slider.style-1 .slide-header h3 {
+    font-family: var(--foodica-font-serif);
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0 0 15px;
+}
+
+#slider.style-1 .slide-header h3 a {
+    color: #ffffff;
+    text-decoration: none;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+#slider.style-1 .slide-header .entry-meta {
+    margin-bottom: 20px;
+}
+
+#slider.style-1 .slide-header .entry-meta span {
+    color: #ffffff;
+    font-size: 0.85rem;
+    margin-right: 15px;
+}
+
+#slider.style-1 .slide_button a {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--foodica-primary);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--foodica-transition);
+}
+
+#slider.style-1 .slide_button a:hover {
+    background: var(--foodica-primary-hover);
+}
+
+@media screen and (max-width: 768px) {
+    #slider.style-1 .slide {
+        min-height: 400px;
     }
     
-    .section-title-home {
+    #slider.style-1 .slide-header h3 {
         font-size: 1.5rem;
     }
 }
 
 /* 
 =======================================================================
-NEWSLETTER SECTION - MATCHES FOODICA WIDGET STYLE
+WELCOME HERO SECTION
 =======================================================================
 */
 
-.newsletter-home {
-    background: var(--foodica-gray-light);
-    border-left: 4px solid var(--foodica-primary);
-    padding: var(--foodica-spacing-md);
-    margin: var(--foodica-spacing-lg) auto;
-    max-width: 600px;
+.welcome-hero {
+    background: var(--foodica-bg);
+    padding: var(--foodica-spacing-lg) var(--foodica-spacing-sm);
+    margin-bottom: var(--foodica-spacing-lg);
 }
 
-.newsletter-home h2 {
-    font-family: 'Lora', Georgia, serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--foodica-text);
-    margin: 0 0 15px;
+.welcome-content {
+    max-width: 800px;
+    margin: 0 auto;
     text-align: center;
 }
 
-.newsletter-home p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--foodica-text);
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.newsletter-home input[type="email"] {
-    width: 100%;
-    padding: 12px 15px;
-    font-size: 1rem;
-    border: 1px solid var(--foodica-gray-border);
-    border-radius: 3px;
-    margin-bottom: 10px;
-}
-
-.newsletter-home button,
-.newsletter-home input[type="submit"] {
-    width: 100%;
-    padding: 12px 20px;
-    font-size: 1rem;
+.welcome-content h1 {
+    font-family: var(--foodica-font-serif);
+    font-size: 2.5rem;
     font-weight: 600;
-    background: var(--foodica-primary);
-    color: #ffffff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: var(--foodica-transition);
+    color: var(--foodica-text);
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+    margin: 0 0 25px;
 }
 
-.newsletter-home button:hover,
-.newsletter-home input[type="submit"]:hover {
-    background: var(--foodica-primary-dark);
+.welcome-content .tagline {
+    font-family: var(--foodica-font-sans);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--foodica-text);
+    margin: 0 0 20px;
+}
+
+.welcome-content .welcome-paragraph {
+    font-family: var(--foodica-font-sans);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--foodica-text-light);
+    margin: 0 0 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .welcome-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .welcome-content .tagline,
+    .welcome-content .welcome-paragraph {
+        font-size: 1rem;
+    }
 }
 
 /* 
 =======================================================================
-CATEGORY GRID - MATCHES FOODICA CATEGORY BLOCKS
+LATEST RECIPES SECTION
 =======================================================================
 */
 
-.category-section {
-    margin: var(--foodica-spacing-lg) 0;
+.latest-recipes {
+    margin: 60px auto;
+    padding: 0 var(--foodica-spacing-sm);
 }
 
-.category-grid {
+.section-title {
+    font-family: var(--foodica-font-serif);
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--foodica-text);
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--foodica-primary);
+}
+
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.recipe-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    content-visibility: auto;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.recipe-card .card-image,
+.recipe-card .post-thumb {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+}
+
+.recipe-card .card-image img,
+.recipe-card .post-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.recipe-card:hover .card-image img,
+.recipe-card:hover .post-thumb img {
+    transform: scale(1.05);
+}
+
+.recipe-card .card-content,
+.recipe-card .entry-body {
+    padding: 25px;
+}
+
+.recipe-card .card-cats,
+.recipe-card .cat-links {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.recipe-card .cat-links a {
+    background-color: var(--foodica-primary);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.recipe-card .cat-links a:hover {
+    background-color: var(--foodica-primary-hover);
+}
+
+.recipe-card .card-title,
+.recipe-card .entry-title {
+    font-family: var(--foodica-font-serif);
+    font-size: 1.4rem;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.recipe-card .card-title a,
+.recipe-card .entry-title a {
+    color: var(--foodica-text);
+    transition: color 0.3s ease;
+}
+
+.recipe-card .card-title a:hover,
+.recipe-card .entry-title a:hover {
+    color: var(--foodica-primary);
+}
+
+.recipe-card .card-meta,
+.recipe-card .entry-meta {
+    font-size: 0.875rem;
+    color: var(--foodica-text-light);
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.recipe-card .card-meta span,
+.recipe-card .entry-meta span {
+    display: inline-flex;
+    align-items: center;
+}
+
+.recipe-card .card-excerpt,
+.recipe-card .entry-content {
+    font-size: 0.95rem;
+    color: var(--foodica-text-light);
+    line-height: 1.6;
+}
+
+.grid-ad-slot {
+    grid-column: span 3;
+    background-color: var(--foodica-gray-light);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+    .recipes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .grid-ad-slot {
+        grid-column: span 2;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .recipes-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .grid-ad-slot {
+        grid-column: span 1;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+}
+
+
+
+/* 
+=======================================================================
+NEWSLETTER SECTION
+=======================================================================
+*/
+
+.newsletter-section {
+    margin-bottom: 80px;
+}
+
+.newsletter-box {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    background-color: #fff;
+    border-left: 4px solid var(--foodica-primary);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.newsletter-box h2 {
+    font-family: var(--foodica-font-serif);
+    font-size: 2rem;
+    color: var(--foodica-text);
+    margin-bottom: 15px;
+}
+
+.newsletter-box p {
+    font-size: 1.05rem;
+    color: var(--foodica-text-light);
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.newsletter-form input[type="email"] {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.newsletter-form input[type="email"]:focus {
+    border-color: var(--foodica-primary);
+    outline: none;
+}
+
+.newsletter-form button {
+    padding: 15px 35px;
+    background-color: var(--foodica-primary);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: var(--foodica-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(224, 84, 84, 0.3);
+}
+
+@media screen and (max-width: 600px) {
+    .newsletter-box {
+        padding: 40px 25px;
+    }
+    
+    .newsletter-box h2 {
+        font-size: 1.6rem;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-form button {
+        padding: 15px 20px;
+    }
+}
+
+/* 
+=======================================================================
+RECIPE CATEGORIES
+=======================================================================
+*/
+
+.recipe-categories {
+    margin-bottom: 80px;
+}
+
+.categories-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--foodica-spacing-md);
-    margin-top: var(--foodica-spacing-md);
+    gap: 20px;
+    margin-bottom: 40px;
 }
 
 .category-block {
     position: relative;
+    height: 300px;
+    border-radius: 8px;
     overflow: hidden;
-    border-radius: 0;
-    height: 250px;
-    background: var(--foodica-gray-light);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-.category-block a {
-    display: block;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
+.category-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.category-block img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--foodica-transition);
-}
-
-.category-block:hover img {
-    transform: scale(1.1);
-}
-
-.category-block .category-overlay {
+.category-bg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+.category-block:hover .category-bg {
+    transform: scale(1.1);
+}
+
+.category-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
     display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--foodica-transition);
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    color: #fff;
+    transition: background 0.3s ease;
 }
 
 .category-block:hover .category-overlay {
-    background: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(
+        to top,
+        rgba(224, 84, 84, 0.9) 0%,
+        rgba(224, 84, 84, 0.5) 50%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
 }
 
-.category-block .category-name {
-    font-family: 'Lora', Georgia, serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #ffffff;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    text-transform: capitalize;
-    text-decoration: none;
+.category-title {
+    font-family: var(--foodica-font-serif);
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.category-count {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.categories-widgets {
+    margin-top: 40px;
 }
 
 @media screen and (max-width: 1024px) {
-    .category-grid {
+    .categories-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media screen and (max-width: 767px) {
-    .category-grid {
+@media screen and (max-width: 600px) {
+    .categories-grid {
         grid-template-columns: 1fr;
     }
     
     .category-block {
-        height: 200px;
+        height: 250px;
     }
 }
 
@@ -458,40 +623,21 @@ PERFORMANCE OPTIMIZATIONS
 =======================================================================
 */
 
-/* Reduce repaints during scroll */
-.ad-slot-home-1,
-.ad-slot-home-2,
-.ad-slot-home-3 {
-    will-change: auto;
-    contain: layout;
-}
-
-/* Lazy load placeholder */
-.lazy-ad {
-    background: var(--foodica-gray-light);
-    display: block;
-}
-
-/* 
-=======================================================================
-SLIDER CUSTOMIZATIONS FOR HOMEPAGE
-=======================================================================
-*/
-
-#slider.style-1 {
-    margin-bottom: var(--foodica-spacing-md);
-}
-
-/* 
-=======================================================================
-PRINT STYLES
-=======================================================================
-*/
-
-@media print {
-    .ad-slot-home-1,
-    .ad-slot-home-2,
-    .ad-slot-home-3 {
-        display: none !important;
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
+}
+
+.recipe-card,
+.category-block {
+    contain: layout style paint;
+}
+
+img[loading="lazy"] {
+    content-visibility: auto;
 }
