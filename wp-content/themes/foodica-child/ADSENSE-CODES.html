@@ -1,0 +1,209 @@
+<!-- 
+=================================================================================
+ADSENSE CODE TEMPLATES - COPY AND PASTE INTO WORDPRESS WIDGETS
+=================================================================================
+
+INSTRUCTIONS:
+1. Go to Appearance → Widgets in WordPress
+2. Find the widget area (Homepage Ad Slot 1, 2, or 3)
+3. Drag a "Custom HTML" widget to that area
+4. Copy the code below and paste it into the widget
+5. Replace YOUR_PUBLISHER_ID with your AdSense Publisher ID (ca-pub-XXXXXXXXXXXXXXXX)
+6. Replace YOUR_AD_SLOT_ID with your Ad Unit Slot ID (from AdSense dashboard)
+7. Save the widget
+
+=================================================================================
+-->
+
+
+<!-- ==================== AD SLOT 1: BELOW SLIDER ==================== -->
+<!-- 
+Recommended Ad Size: 728x90 (Leaderboard) or Responsive
+Location: Immediately below the featured slider
+Best for: Horizontal banner ads
+-->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR_PUBLISHER_ID"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="YOUR_PUBLISHER_ID"
+     data-ad-slot="YOUR_AD_SLOT_ID"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+
+<!-- DO NOT ADD PUSH SCRIPT - The theme handles it automatically -->
+
+
+<!-- ==================== AD SLOT 2: BETWEEN RECIPE CARDS ==================== -->
+<!-- 
+Recommended Ad Size: 970x250 (Billboard) or Responsive
+Location: After 3rd recipe card in the grid
+Best for: Large rectangle or billboard ads
+-->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR_PUBLISHER_ID"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="YOUR_PUBLISHER_ID"
+     data-ad-slot="YOUR_AD_SLOT_ID"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+
+<!-- DO NOT ADD PUSH SCRIPT - The theme handles it automatically -->
+
+
+<!-- ==================== AD SLOT 3: ABOVE FOOTER ==================== -->
+<!-- 
+Recommended Ad Size: 970x90 (Large Leaderboard) or Responsive
+Location: Above footer, after all content
+Best for: Horizontal banner ads
+-->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR_PUBLISHER_ID"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="YOUR_PUBLISHER_ID"
+     data-ad-slot="YOUR_AD_SLOT_ID"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+
+<!-- DO NOT ADD PUSH SCRIPT - The theme handles it automatically -->
+
+
+<!-- 
+=================================================================================
+EXAMPLE WITH REAL IDS (REPLACE WITH YOUR OWN)
+=================================================================================
+-->
+
+<!-- EXAMPLE - Ad Slot 1 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1234567890123456"
+     data-ad-slot="9876543210"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+
+
+<!-- 
+=================================================================================
+FINDING YOUR ADSENSE IDS
+=================================================================================
+
+1. LOGIN TO ADSENSE:
+   - Go to: https://www.google.com/adsense/
+   - Sign in with your Google account
+
+2. FIND YOUR PUBLISHER ID:
+   - Go to "Account" → "Account Information"
+   - Look for "Publisher ID" (format: ca-pub-XXXXXXXXXXXXXXXX)
+   - Copy this ID
+
+3. CREATE AD UNITS:
+   - Go to "Ads" → "Overview" → "By ad unit"
+   - Click "New ad unit"
+   - Choose "Display ads"
+   - Give it a name (e.g., "Homepage Slot 1")
+   - Choose size: Responsive
+   - Click "Create"
+   - Copy the "data-ad-slot" ID (10-digit number)
+
+4. REPEAT FOR EACH AD SLOT:
+   - Create 3 separate ad units:
+     * Homepage Slot 1 (Below Slider)
+     * Homepage Slot 2 (Between Content)
+     * Homepage Slot 3 (Above Footer)
+
+=================================================================================
+ADSENSE POLICY COMPLIANCE
+=================================================================================
+
+✅ DO:
+- Place max 3 ads above the fold on homepage
+- Use responsive ad units for mobile
+- Maintain clear distinction between ads and content
+- Test on multiple devices
+- Follow Google's Better Ads Standards
+
+❌ DON'T:
+- Place ads on blank pages
+- Use deceptive ad placement
+- Encourage clicks on ads
+- Place ads in pop-ups
+- Violate AdSense Program Policies
+
+Read full policies: https://support.google.com/adsense/answer/48182
+
+=================================================================================
+TROUBLESHOOTING
+=================================================================================
+
+PROBLEM: Ads show blank spaces
+SOLUTION: 
+- Wait 24-48 hours for new ad units to activate
+- Check your AdSense account is fully approved
+- Verify Publisher ID and Slot IDs are correct
+- Clear browser cache
+
+PROBLEM: Ads not loading on mobile
+SOLUTION:
+- Ensure data-full-width-responsive="true" is present
+- Test on real device, not just browser emulator
+- Check mobile-specific AdSense policies
+
+PROBLEM: "AdSense code not found" error
+SOLUTION:
+- Verify you pasted the code in widget area, not page content
+- Check the async script tag is present
+- Ensure no other plugins are blocking scripts
+
+=================================================================================
+TESTING YOUR ADS
+=================================================================================
+
+1. INITIAL TEST:
+   - Clear browser cache
+   - Visit homepage in incognito mode
+   - Check all 3 ad slots load
+   - Look for gray "Advertisement" placeholders
+
+2. MOBILE TEST:
+   - Test on actual mobile device
+   - Check ads are responsive
+   - Verify no horizontal scrolling
+
+3. PERFORMANCE TEST:
+   - Run PageSpeed Insights: https://pagespeed.web.dev/
+   - Check Core Web Vitals scores
+   - Ensure CLS (Cumulative Layout Shift) < 0.1
+
+4. POLICY CHECK:
+   - Verify ad-to-content ratio is appropriate
+   - Check ads don't push content below fold
+   - Ensure clear visual separation from content
+
+=================================================================================
+ALTERNATIVE: MANUAL CODE PLACEMENT
+=================================================================================
+
+If you prefer to edit the template directly instead of using widgets:
+
+1. Go to: Appearance → Theme File Editor
+2. Select: Foodica Child theme
+3. Open: front-page.php
+4. Find the comment: <!-- AdSense Code Placeholder - Ad Slot X -->
+5. Replace the entire placeholder div with your AdSense code
+6. IMPORTANT: Remove this line from functions.php if editing manually:
+   add_action( 'wp_footer', 'foodica_child_lazy_adsense_script', 99 );
+7. Add this after each ad code:
+   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+WARNING: Direct editing makes updates harder. Widget method is recommended.
+
+=================================================================================
+-->

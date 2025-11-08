@@ -1,0 +1,497 @@
+/*
+Theme Name: Foodica Child
+Template: foodica
+Version: 1.0.0
+Description: Child theme for Foodica with AdSense optimization and custom homepage
+Author: Your Name
+Author URI: https://yoursite.com
+License: GPL v3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Text Domain: foodica-child
+*/
+
+/* 
+=======================================================================
+IMPORT PARENT THEME STYLES - DO NOT REMOVE
+=======================================================================
+*/
+
+/* Parent styles will be enqueued via functions.php for better performance */
+
+/* 
+=======================================================================
+FOODICA DESIGN SYSTEM VARIABLES
+=======================================================================
+*/
+
+:root {
+    --foodica-primary: #e05454;
+    --foodica-primary-dark: #c54545;
+    --foodica-bg: #ffffff;
+    --foodica-text: #333333;
+    --foodica-text-light: #999999;
+    --foodica-gray-light: #f9f9f9;
+    --foodica-gray-border: #eeeeee;
+    --foodica-spacing-sm: 15px;
+    --foodica-spacing-md: 30px;
+    --foodica-spacing-lg: 40px;
+    --foodica-transition: all 0.3s ease;
+}
+
+/* 
+=======================================================================
+ADSENSE AD SLOT CONTAINERS
+=======================================================================
+*/
+
+/* Base styles for all ad slots */
+.ad-slot-home-1,
+.ad-slot-home-2,
+.ad-slot-home-3 {
+    margin: var(--foodica-spacing-md) auto;
+    padding: 0 var(--foodica-spacing-sm);
+    text-align: center;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Ensure AdSense doesn't overflow on mobile */
+.ad-slot-home-1 ins.adsbygoogle,
+.ad-slot-home-2 ins.adsbygoogle,
+.ad-slot-home-3 ins.adsbygoogle {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Reserve space to prevent Cumulative Layout Shift (CLS) */
+.ad-slot-home-1 {
+    min-height: 90px; /* Standard leaderboard */
+}
+
+.ad-slot-home-2 {
+    min-height: 250px; /* Large rectangle */
+}
+
+.ad-slot-home-3 {
+    min-height: 90px; /* Standard leaderboard */
+}
+
+/* Desktop ad widths */
+@media screen and (min-width: 768px) {
+    .ad-slot-home-1 {
+        max-width: 728px;
+    }
+    
+    .ad-slot-home-2 {
+        max-width: 970px;
+    }
+    
+    .ad-slot-home-3 {
+        max-width: 970px;
+    }
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 767px) {
+    .ad-slot-home-1,
+    .ad-slot-home-2,
+    .ad-slot-home-3 {
+        min-height: 50px;
+        margin: 20px auto;
+    }
+}
+
+/* 
+=======================================================================
+WELCOME SECTION - MATCHES FOODICA TYPOGRAPHY
+=======================================================================
+*/
+
+.welcome-section {
+    max-width: 800px;
+    margin: 0 auto var(--foodica-spacing-lg);
+    padding: var(--foodica-spacing-lg) var(--foodica-spacing-sm);
+    background: var(--foodica-bg);
+}
+
+.welcome-section h1 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--foodica-text);
+    text-align: center;
+    margin: 0 0 20px;
+    line-height: 1.3;
+}
+
+.welcome-section p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--foodica-text);
+    max-width: 700px;
+    margin: 0 auto 20px;
+    text-align: left;
+}
+
+@media screen and (max-width: 767px) {
+    .welcome-section h1 {
+        font-size: 1.8rem;
+    }
+    
+    .welcome-section p {
+        font-size: 1rem;
+    }
+}
+
+/* 
+=======================================================================
+LATEST RECIPES GRID - MATCHES FOODICA POST CARDS
+=======================================================================
+*/
+
+.latest-recipes-section {
+    margin: var(--foodica-spacing-lg) 0;
+}
+
+.section-title-home {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--foodica-text);
+    margin: 0 0 var(--foodica-spacing-md);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--foodica-gray-border);
+}
+
+.latest-recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--foodica-spacing-md);
+    margin: 0 0 var(--foodica-spacing-md);
+}
+
+.recipe-card-home {
+    background: var(--foodica-bg);
+    border: 1px solid var(--foodica-gray-border);
+    border-radius: 0;
+    overflow: hidden;
+    transition: var(--foodica-transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-card-home:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.recipe-card-home .post-thumb {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+}
+
+.recipe-card-home .post-thumb a {
+    display: block;
+}
+
+.recipe-card-home .post-thumb img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: var(--foodica-transition);
+}
+
+.recipe-card-home:hover .post-thumb img {
+    transform: scale(1.05);
+}
+
+.recipe-card-home .entry-body {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-card-home .cat-links {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.recipe-card-home .cat-links a {
+    color: var(--foodica-primary);
+    text-decoration: none;
+    transition: var(--foodica-transition);
+}
+
+.recipe-card-home .cat-links a:hover {
+    color: var(--foodica-primary-dark);
+}
+
+.recipe-card-home .entry-title {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0 0 10px;
+}
+
+.recipe-card-home .entry-title a {
+    color: var(--foodica-text);
+    text-decoration: none;
+    transition: var(--foodica-transition);
+}
+
+.recipe-card-home .entry-title a:hover {
+    color: var(--foodica-primary);
+}
+
+.recipe-card-home .entry-meta {
+    font-size: 0.85rem;
+    color: var(--foodica-text-light);
+    margin-bottom: 10px;
+}
+
+.recipe-card-home .entry-meta span {
+    margin-right: 10px;
+}
+
+.recipe-card-home .entry-excerpt {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--foodica-text);
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+/* Responsive Grid */
+@media screen and (max-width: 1024px) {
+    .latest-recipes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .latest-recipes-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .section-title-home {
+        font-size: 1.5rem;
+    }
+}
+
+/* 
+=======================================================================
+NEWSLETTER SECTION - MATCHES FOODICA WIDGET STYLE
+=======================================================================
+*/
+
+.newsletter-home {
+    background: var(--foodica-gray-light);
+    border-left: 4px solid var(--foodica-primary);
+    padding: var(--foodica-spacing-md);
+    margin: var(--foodica-spacing-lg) auto;
+    max-width: 600px;
+}
+
+.newsletter-home h2 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--foodica-text);
+    margin: 0 0 15px;
+    text-align: center;
+}
+
+.newsletter-home p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--foodica-text);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.newsletter-home input[type="email"] {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 1px solid var(--foodica-gray-border);
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.newsletter-home button,
+.newsletter-home input[type="submit"] {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    background: var(--foodica-primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: var(--foodica-transition);
+}
+
+.newsletter-home button:hover,
+.newsletter-home input[type="submit"]:hover {
+    background: var(--foodica-primary-dark);
+}
+
+/* 
+=======================================================================
+CATEGORY GRID - MATCHES FOODICA CATEGORY BLOCKS
+=======================================================================
+*/
+
+.category-section {
+    margin: var(--foodica-spacing-lg) 0;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--foodica-spacing-md);
+    margin-top: var(--foodica-spacing-md);
+}
+
+.category-block {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+    height: 250px;
+    background: var(--foodica-gray-light);
+}
+
+.category-block a {
+    display: block;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.category-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--foodica-transition);
+}
+
+.category-block:hover img {
+    transform: scale(1.1);
+}
+
+.category-block .category-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--foodica-transition);
+}
+
+.category-block:hover .category-overlay {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.category-block .category-name {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .category-block {
+        height: 200px;
+    }
+}
+
+/* 
+=======================================================================
+INSTAGRAM FEED SECTION
+=======================================================================
+*/
+
+.instagram-section {
+    margin: var(--foodica-spacing-lg) 0;
+    text-align: center;
+}
+
+.instagram-section h2 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--foodica-text);
+    margin-bottom: var(--foodica-spacing-md);
+}
+
+/* 
+=======================================================================
+PERFORMANCE OPTIMIZATIONS
+=======================================================================
+*/
+
+/* Reduce repaints during scroll */
+.ad-slot-home-1,
+.ad-slot-home-2,
+.ad-slot-home-3 {
+    will-change: auto;
+    contain: layout;
+}
+
+/* Lazy load placeholder */
+.lazy-ad {
+    background: var(--foodica-gray-light);
+    display: block;
+}
+
+/* 
+=======================================================================
+SLIDER CUSTOMIZATIONS FOR HOMEPAGE
+=======================================================================
+*/
+
+#slider.style-1 {
+    margin-bottom: var(--foodica-spacing-md);
+}
+
+/* 
+=======================================================================
+PRINT STYLES
+=======================================================================
+*/
+
+@media print {
+    .ad-slot-home-1,
+    .ad-slot-home-2,
+    .ad-slot-home-3 {
+        display: none !important;
+    }
+}
