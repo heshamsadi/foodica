@@ -594,3 +594,144 @@ function foodica_recipe_save_meta_box( $post_id ) {
     }
 }
 add_action( 'save_post', 'foodica_recipe_save_meta_box' );
+
+/**
+ * ===========================================================================
+ * ADSENSE & ENHANCED RECIPE FEATURES
+ * ===========================================================================
+ */
+
+/**
+ * Enqueue Recipe Enhancement Scripts & Styles
+ */
+function recipe_enhancements_assets() {
+    if ( is_singular( 'post' ) ) {
+        wp_enqueue_script(
+            'recipe-enhancements',
+            get_stylesheet_directory_uri() . '/js/recipe-enhancements.js',
+            array(),
+            '1.0.0',
+            true
+        );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'recipe_enhancements_assets' );
+
+/**
+ * Display AdSense Ad at Specific Location
+ * 
+ * Usage: adsense_display_ad('after_title');
+ * 
+ * @param string $location Ad location identifier
+ */
+function adsense_display_ad( $location = 'default' ) {
+    // AdSense ad codes - REPLACE WITH YOUR ACTUAL AD CODES
+    $ad_codes = array(
+        'after_title' => '
+            <!-- AdSense: After Title -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        ',
+        
+        'after_intro' => '
+            <!-- AdSense: After Intro -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="rectangle"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        ',
+        
+        'before_recipe' => '
+            <!-- AdSense: Before Recipe -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="horizontal"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        ',
+        
+        'between_sections' => '
+            <!-- AdSense: Between Sections -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="fluid"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        ',
+        
+        'after_recipe' => '
+            <!-- AdSense: After Recipe -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        ',
+        
+        'sidebar_sticky' => '
+            <!-- AdSense: Sidebar Sticky -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="vertical"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        '
+    );
+    
+    // Return placeholder until AdSense codes are added
+    if ( isset( $ad_codes[ $location ] ) ) {
+        // Check if actual AdSense code is present
+        if ( strpos( $ad_codes[ $location ], 'ca-pub-XXXXXXXXXXXXXXXX' ) !== false ) {
+            // Placeholder mode (show message for development)
+            echo '<div style="background:#f0f0f0; padding:20px; text-align:center; border:2px dashed #ccc; margin:20px 0;">';
+            echo '<strong>AdSense Ad Slot: ' . esc_html( $location ) . '</strong><br>';
+            echo '<small>Replace placeholder code in functions.php with your actual AdSense code</small>';
+            echo '</div>';
+        } else {
+            // Real AdSense code
+            echo $ad_codes[ $location ];
+        }
+    }
+}
+
+/**
+ * Add AdSense script to header (only once)
+ */
+function adsense_header_script() {
+    if ( is_singular( 'post' ) ) {
+        // REPLACE WITH YOUR ADSENSE PUBLISHER ID
+        ?>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                crossorigin="anonymous"></script>
+        <?php
+    }
+}
+add_action( 'wp_head', 'adsense_header_script' );
+
